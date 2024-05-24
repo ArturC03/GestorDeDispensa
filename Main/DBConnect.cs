@@ -17,7 +17,23 @@ namespace Main
         private string database;
         private string uid;
         private string password;
-
+        
+        public string Server
+        {
+            get => server;
+        }
+       public string Database
+        {
+            get => database;
+        }
+        public string Uid
+        {
+            get => uid;
+        }
+        public string Password
+        {
+            get => password;
+        }
         //Constructor
         public DBConnect()
         {

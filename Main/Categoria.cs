@@ -1,22 +1,19 @@
 ﻿using System;
-using System.CodeDom;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
-using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Main
 {
-    internal class Produto
+    internal class Categoria
     {
-        private static string[] produtoFields = {"idProduto","idCategoria","nome","preco","quantidade","marca"};
+        private static string[] categoriaFields= {"idCategoria","categoria"};
        
         private bool ValidField(string field)
         {
-                foreach (string produtoField in produtoFields)
-                    if (0 == string.Compare(produtoField, field) || 0 == string.Compare(produtoField, field))
+                foreach (string categoriaField in categoriaFields)
+                    if (0 == string.Compare(categoriaField, field) || 0 == string.Compare(categoriaField, field))
                         return true;
                 return false;
 
@@ -24,9 +21,9 @@ namespace Main
         private bool ValidField(string[] fields)
         {
             int cont = 0;
-            for (int i = 0; i < produtoFields.Length; i++)
-                foreach (string produtoField in produtoFields)
-                    if (0 == string.Compare(produtoField, fields[i]) || 0 == string.Compare(produtoField, fields[i]))
+            for (int i = 0; i < categoriaFields.Length; i++)
+                foreach (string categoriaField in categoriaFields)
+                    if (0 == string.Compare(categoriaField, fields[i]) || 0 == string.Compare(categoriaField, fields[i]))
                         cont++;
             if(fields.Length == cont)
                 return true;
@@ -42,7 +39,7 @@ namespace Main
             
             DBConnect dBConnect = new DBConnect();
 
-            dBConnect.Insert("Produto", fields, values);
+            dBConnect.Insert("Categoria", fields, values);
             return true;
         }
 
@@ -51,7 +48,7 @@ namespace Main
         {
             DBConnect dBConnect = new DBConnect();
 
-            dBConnect.Update("Produto", changes);
+            dBConnect.Update("Categoria", changes);
             return true;
         }
 
@@ -59,7 +56,7 @@ namespace Main
         public bool Delete(string condition = null)
         {
             DBConnect dBConnect = new DBConnect();
-            dBConnect.Delete("Produto", condition);
+            dBConnect.Delete("Categoria", condition);
             return true;
 
         }
@@ -73,7 +70,7 @@ namespace Main
             
             DBConnect dBConnect = new DBConnect();
 
-            return dBConnect.Select("Produto", fields, condition);
+            return dBConnect.Select("Categoria", fields, condition);
         }
 
         //Count statement
@@ -84,8 +81,9 @@ namespace Main
             
             DBConnect dBConnect = new DBConnect();
 
-            return dBConnect.Count("Produto", field);
+            return dBConnect.Count("Categoria", field);
             
         }
+
     }
 }
