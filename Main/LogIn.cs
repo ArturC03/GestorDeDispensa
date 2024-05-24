@@ -15,11 +15,12 @@ namespace Main
         public LogIn()
         {
             InitializeComponent();
+            
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         private void btnLogIn_Click(object sender, EventArgs e)
@@ -35,12 +36,16 @@ namespace Main
             {
                 Main main = new Main();
                 main.Show();
-                this.Hide();
-                this.Close();
+                
             }
 
 
 
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
