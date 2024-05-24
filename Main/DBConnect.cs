@@ -191,6 +191,31 @@ namespace Main
             }
         }
 
+        //Count statement
+        public int Count(string tableName, string field)
+        {
+            string query = $"SELECT Count({database}.{tableName}.{field}) FROM {database}.{tableName}";
+            int Count = -1;
+
+            //Open Connection
+            if (this.OpenConnection() == true)
+            {
+                //Create Mysql Command
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+
+                //ExecuteScalar will return one value
+                Count = int.Parse(cmd.ExecuteScalar() + "");
+
+                //close Connection
+                this.CloseConnection();
+
+                return Count;
+            }
+            else
+            {
+                return Count;
+            }
+        }
         //Backup
         public void Backup()
         {
