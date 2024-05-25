@@ -34,13 +34,12 @@ namespace Main
         {
             get => password;
         }
-        //Constructor
+        
         public DBConnect()
         {
             Initialize();
         }
 
-        //Initialize values
         private void Initialize()
         {
             server = "localhost";
@@ -84,7 +83,6 @@ namespace Main
             }
         }
 
-        //Close connection
         private bool CloseConnection()
         {
             try
@@ -99,7 +97,6 @@ namespace Main
             }
         }
 
-        //Insert statement
         public void Insert(string tableName, string[] fields, string[] values)
         {
             string query = $"INSERT INTO {database}.{tableName.Trim()} ({string.Join(",", fields)}) VALUES({string.Join(",", values)})";
@@ -118,7 +115,6 @@ namespace Main
             }
         }
 
-        //Update statement
         public void Update(string tableName, string[] changes,string condition = null)
         {
             string query = $"UPDATE {database}.{tableName} SET ";
@@ -148,7 +144,6 @@ namespace Main
             }
         }
 
-        //Delete statement
         public void Delete(string tableName, string condition = null)
         {
             string query = $"DELETE FROM {database}.{tableName}";
@@ -164,7 +159,6 @@ namespace Main
             }
         }
 
-        //Select statement
         public List<string>[] Select(string tableName, string[] tableFields,string condition = null)
         {
             string query = $"SELECT ";
@@ -213,7 +207,6 @@ namespace Main
             }
         }
 
-        //Count statement
         public int Count(string tableName, string field)
         {
             string query = $"SELECT Count({database}.{tableName}.{field}) FROM {database}.{tableName}";
@@ -238,7 +231,6 @@ namespace Main
                 return Count;
             }
         }
-        //Backup
         public void Backup()
         {
             try
@@ -278,11 +270,10 @@ namespace Main
             }
             catch (IOException ex)
             {
-                MessageBox.Show("Error , unable to backup!");
+                MessageBox.Show(ex.Message, "Error , unable to backup!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        //Restore
         public void Restore()
         {
             try
@@ -311,7 +302,7 @@ namespace Main
             }
             catch (IOException ex)
             {
-                MessageBox.Show("Error , unable to Restore!");
+                MessageBox.Show(ex.Message, "Error , unable to restore!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

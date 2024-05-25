@@ -30,15 +30,20 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.panelHome = new System.Windows.Forms.Panel();
+            this.btnHome = new CustomControls.RJControls.RJButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelMenu = new System.Windows.Forms.FlowLayoutPanel();
             this.panelGestDispensa = new System.Windows.Forms.Panel();
+            this.btnGestDispensa = new CustomControls.RJControls.RJButton();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panelGestCategoria = new System.Windows.Forms.Panel();
+            this.btnGestCategoria = new CustomControls.RJControls.RJButton();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.panelLogOut = new System.Windows.Forms.Panel();
+            this.btnLogOut = new CustomControls.RJControls.RJButton();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.panelExit = new System.Windows.Forms.Panel();
+            this.btnExit = new CustomControls.RJControls.RJButton();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.lstv = new System.Windows.Forms.ListView();
             this.ID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -48,11 +53,6 @@
             this.quantidade = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.marca = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnMenu = new CustomControls.RJControls.RJButton();
-            this.btnHome = new CustomControls.RJControls.RJButton();
-            this.btnGestDispensa = new CustomControls.RJControls.RJButton();
-            this.btnGestCategoria = new CustomControls.RJControls.RJButton();
-            this.btnLogOut = new CustomControls.RJControls.RJButton();
-            this.btnExit = new CustomControls.RJControls.RJButton();
             this.panelHome.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelMenu.SuspendLayout();
@@ -76,6 +76,28 @@
             this.panelHome.Size = new System.Drawing.Size(200, 45);
             this.panelHome.TabIndex = 1;
             // 
+            // btnHome
+            // 
+            this.btnHome.BackColor = System.Drawing.Color.Transparent;
+            this.btnHome.BackgroundColor = System.Drawing.Color.Transparent;
+            this.btnHome.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnHome.BorderRadius = 0;
+            this.btnHome.BorderSize = 0;
+            this.btnHome.FlatAppearance.BorderSize = 0;
+            this.btnHome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHome.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Bold);
+            this.btnHome.ForeColor = System.Drawing.Color.Crimson;
+            this.btnHome.Location = new System.Drawing.Point(47, 2);
+            this.btnHome.Name = "btnHome";
+            this.btnHome.Size = new System.Drawing.Size(150, 40);
+            this.btnHome.TabIndex = 3;
+            this.btnHome.Text = "HOME";
+            this.btnHome.TextColor = System.Drawing.Color.Crimson;
+            this.btnHome.UseVisualStyleBackColor = false;
+            this.btnHome.MouseEnter += new System.EventHandler(this.btnHome_MouseEnter);
+            this.btnHome.MouseLeave += new System.EventHandler(this.btnHome_MouseLeave);
+            this.btnHome.MouseHover += new System.EventHandler(this.btnHome_MouseHover);
+            // 
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
@@ -90,6 +112,8 @@
             // panelMenu
             // 
             this.panelMenu.BackColor = System.Drawing.Color.Crimson;
+            this.panelMenu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.panelMenu.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelMenu.Controls.Add(this.panelHome);
             this.panelMenu.Controls.Add(this.panelGestDispensa);
             this.panelMenu.Controls.Add(this.panelGestCategoria);
@@ -112,6 +136,28 @@
             this.panelGestDispensa.Size = new System.Drawing.Size(200, 45);
             this.panelGestDispensa.TabIndex = 2;
             // 
+            // btnGestDispensa
+            // 
+            this.btnGestDispensa.BackColor = System.Drawing.Color.Transparent;
+            this.btnGestDispensa.BackgroundColor = System.Drawing.Color.Transparent;
+            this.btnGestDispensa.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnGestDispensa.BorderRadius = 0;
+            this.btnGestDispensa.BorderSize = 0;
+            this.btnGestDispensa.FlatAppearance.BorderSize = 0;
+            this.btnGestDispensa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGestDispensa.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Bold);
+            this.btnGestDispensa.ForeColor = System.Drawing.Color.Crimson;
+            this.btnGestDispensa.Location = new System.Drawing.Point(47, 2);
+            this.btnGestDispensa.Name = "btnGestDispensa";
+            this.btnGestDispensa.Size = new System.Drawing.Size(150, 40);
+            this.btnGestDispensa.TabIndex = 3;
+            this.btnGestDispensa.Text = "DISPENSA";
+            this.btnGestDispensa.TextColor = System.Drawing.Color.Crimson;
+            this.btnGestDispensa.UseVisualStyleBackColor = false;
+            this.btnGestDispensa.Click += new System.EventHandler(this.btnGestDispensa_Click);
+            this.btnGestDispensa.MouseEnter += new System.EventHandler(this.btnGestDispensa_MouseEnter);
+            this.btnGestDispensa.MouseLeave += new System.EventHandler(this.btnGestDispensa_MouseLeave);
+            // 
             // pictureBox2
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
@@ -132,6 +178,28 @@
             this.panelGestCategoria.Name = "panelGestCategoria";
             this.panelGestCategoria.Size = new System.Drawing.Size(200, 45);
             this.panelGestCategoria.TabIndex = 3;
+            // 
+            // btnGestCategoria
+            // 
+            this.btnGestCategoria.BackColor = System.Drawing.Color.Transparent;
+            this.btnGestCategoria.BackgroundColor = System.Drawing.Color.Transparent;
+            this.btnGestCategoria.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnGestCategoria.BorderRadius = 0;
+            this.btnGestCategoria.BorderSize = 0;
+            this.btnGestCategoria.FlatAppearance.BorderSize = 0;
+            this.btnGestCategoria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGestCategoria.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Bold);
+            this.btnGestCategoria.ForeColor = System.Drawing.Color.Crimson;
+            this.btnGestCategoria.Location = new System.Drawing.Point(47, 2);
+            this.btnGestCategoria.Name = "btnGestCategoria";
+            this.btnGestCategoria.Size = new System.Drawing.Size(150, 40);
+            this.btnGestCategoria.TabIndex = 3;
+            this.btnGestCategoria.Text = "CATEGORIAS";
+            this.btnGestCategoria.TextColor = System.Drawing.Color.Crimson;
+            this.btnGestCategoria.UseVisualStyleBackColor = false;
+            this.btnGestCategoria.Click += new System.EventHandler(this.btnGestCategoria_Click);
+            this.btnGestCategoria.MouseEnter += new System.EventHandler(this.btnGestCategoria_MouseEnter);
+            this.btnGestCategoria.MouseLeave += new System.EventHandler(this.btnGestCategoria_MouseLeave);
             // 
             // pictureBox3
             // 
@@ -154,6 +222,28 @@
             this.panelLogOut.Size = new System.Drawing.Size(200, 45);
             this.panelLogOut.TabIndex = 4;
             // 
+            // btnLogOut
+            // 
+            this.btnLogOut.BackColor = System.Drawing.Color.Transparent;
+            this.btnLogOut.BackgroundColor = System.Drawing.Color.Transparent;
+            this.btnLogOut.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnLogOut.BorderRadius = 0;
+            this.btnLogOut.BorderSize = 0;
+            this.btnLogOut.FlatAppearance.BorderSize = 0;
+            this.btnLogOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLogOut.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Bold);
+            this.btnLogOut.ForeColor = System.Drawing.Color.Crimson;
+            this.btnLogOut.Location = new System.Drawing.Point(47, 2);
+            this.btnLogOut.Name = "btnLogOut";
+            this.btnLogOut.Size = new System.Drawing.Size(150, 40);
+            this.btnLogOut.TabIndex = 3;
+            this.btnLogOut.Text = "LOG OUT";
+            this.btnLogOut.TextColor = System.Drawing.Color.Crimson;
+            this.btnLogOut.UseVisualStyleBackColor = false;
+            this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
+            this.btnLogOut.MouseEnter += new System.EventHandler(this.btnLogOut_MouseEnter);
+            this.btnLogOut.MouseLeave += new System.EventHandler(this.btnLogOut_MouseLeave);
+            // 
             // pictureBox4
             // 
             this.pictureBox4.BackColor = System.Drawing.Color.Transparent;
@@ -174,6 +264,28 @@
             this.panelExit.Name = "panelExit";
             this.panelExit.Size = new System.Drawing.Size(200, 45);
             this.panelExit.TabIndex = 5;
+            // 
+            // btnExit
+            // 
+            this.btnExit.BackColor = System.Drawing.Color.Transparent;
+            this.btnExit.BackgroundColor = System.Drawing.Color.Transparent;
+            this.btnExit.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnExit.BorderRadius = 0;
+            this.btnExit.BorderSize = 0;
+            this.btnExit.FlatAppearance.BorderSize = 0;
+            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExit.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Bold);
+            this.btnExit.ForeColor = System.Drawing.Color.Crimson;
+            this.btnExit.Location = new System.Drawing.Point(47, 2);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(150, 40);
+            this.btnExit.TabIndex = 3;
+            this.btnExit.Text = "SAIR";
+            this.btnExit.TextColor = System.Drawing.Color.Crimson;
+            this.btnExit.UseVisualStyleBackColor = false;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            this.btnExit.MouseEnter += new System.EventHandler(this.btnExit_MouseEnter);
+            this.btnExit.MouseLeave += new System.EventHandler(this.btnExit_MouseLeave);
             // 
             // pictureBox5
             // 
@@ -249,122 +361,12 @@
             this.btnMenu.UseVisualStyleBackColor = false;
             this.btnMenu.Click += new System.EventHandler(this.btnMenu_Click);
             // 
-            // btnHome
-            // 
-            this.btnHome.BackColor = System.Drawing.Color.Transparent;
-            this.btnHome.BackgroundColor = System.Drawing.Color.Transparent;
-            this.btnHome.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnHome.BorderRadius = 0;
-            this.btnHome.BorderSize = 0;
-            this.btnHome.FlatAppearance.BorderSize = 0;
-            this.btnHome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnHome.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Bold);
-            this.btnHome.ForeColor = System.Drawing.Color.Crimson;
-            this.btnHome.Location = new System.Drawing.Point(47, 2);
-            this.btnHome.Name = "btnHome";
-            this.btnHome.Size = new System.Drawing.Size(150, 40);
-            this.btnHome.TabIndex = 3;
-            this.btnHome.Text = "HOME";
-            this.btnHome.TextColor = System.Drawing.Color.Crimson;
-            this.btnHome.UseVisualStyleBackColor = false;
-            this.btnHome.MouseEnter += new System.EventHandler(this.btnHome_MouseEnter);
-            this.btnHome.MouseLeave += new System.EventHandler(this.btnHome_MouseLeave);
-            this.btnHome.MouseHover += new System.EventHandler(this.btnHome_MouseHover);
-            // 
-            // btnGestDispensa
-            // 
-            this.btnGestDispensa.BackColor = System.Drawing.Color.Transparent;
-            this.btnGestDispensa.BackgroundColor = System.Drawing.Color.Transparent;
-            this.btnGestDispensa.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnGestDispensa.BorderRadius = 0;
-            this.btnGestDispensa.BorderSize = 0;
-            this.btnGestDispensa.FlatAppearance.BorderSize = 0;
-            this.btnGestDispensa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGestDispensa.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Bold);
-            this.btnGestDispensa.ForeColor = System.Drawing.Color.Crimson;
-            this.btnGestDispensa.Location = new System.Drawing.Point(47, 2);
-            this.btnGestDispensa.Name = "btnGestDispensa";
-            this.btnGestDispensa.Size = new System.Drawing.Size(150, 40);
-            this.btnGestDispensa.TabIndex = 3;
-            this.btnGestDispensa.Text = "DISPENSA";
-            this.btnGestDispensa.TextColor = System.Drawing.Color.Crimson;
-            this.btnGestDispensa.UseVisualStyleBackColor = false;
-            this.btnGestDispensa.Click += new System.EventHandler(this.btnGestDispensa_Click);
-            this.btnGestDispensa.MouseEnter += new System.EventHandler(this.btnGestDispensa_MouseEnter);
-            this.btnGestDispensa.MouseLeave += new System.EventHandler(this.btnGestDispensa_MouseLeave);
-            // 
-            // btnGestCategoria
-            // 
-            this.btnGestCategoria.BackColor = System.Drawing.Color.Transparent;
-            this.btnGestCategoria.BackgroundColor = System.Drawing.Color.Transparent;
-            this.btnGestCategoria.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnGestCategoria.BorderRadius = 0;
-            this.btnGestCategoria.BorderSize = 0;
-            this.btnGestCategoria.FlatAppearance.BorderSize = 0;
-            this.btnGestCategoria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGestCategoria.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Bold);
-            this.btnGestCategoria.ForeColor = System.Drawing.Color.Crimson;
-            this.btnGestCategoria.Location = new System.Drawing.Point(47, 2);
-            this.btnGestCategoria.Name = "btnGestCategoria";
-            this.btnGestCategoria.Size = new System.Drawing.Size(150, 40);
-            this.btnGestCategoria.TabIndex = 3;
-            this.btnGestCategoria.Text = "CATEGORIAS";
-            this.btnGestCategoria.TextColor = System.Drawing.Color.Crimson;
-            this.btnGestCategoria.UseVisualStyleBackColor = false;
-            this.btnGestCategoria.Click += new System.EventHandler(this.btnGestCategoria_Click);
-            this.btnGestCategoria.MouseEnter += new System.EventHandler(this.btnGestCategoria_MouseEnter);
-            this.btnGestCategoria.MouseLeave += new System.EventHandler(this.btnGestCategoria_MouseLeave);
-            // 
-            // btnLogOut
-            // 
-            this.btnLogOut.BackColor = System.Drawing.Color.Transparent;
-            this.btnLogOut.BackgroundColor = System.Drawing.Color.Transparent;
-            this.btnLogOut.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnLogOut.BorderRadius = 0;
-            this.btnLogOut.BorderSize = 0;
-            this.btnLogOut.FlatAppearance.BorderSize = 0;
-            this.btnLogOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLogOut.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Bold);
-            this.btnLogOut.ForeColor = System.Drawing.Color.Crimson;
-            this.btnLogOut.Location = new System.Drawing.Point(47, 2);
-            this.btnLogOut.Name = "btnLogOut";
-            this.btnLogOut.Size = new System.Drawing.Size(150, 40);
-            this.btnLogOut.TabIndex = 3;
-            this.btnLogOut.Text = "LOG OUT";
-            this.btnLogOut.TextColor = System.Drawing.Color.Crimson;
-            this.btnLogOut.UseVisualStyleBackColor = false;
-            this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
-            this.btnLogOut.MouseEnter += new System.EventHandler(this.btnLogOut_MouseEnter);
-            this.btnLogOut.MouseLeave += new System.EventHandler(this.btnLogOut_MouseLeave);
-            // 
-            // btnExit
-            // 
-            this.btnExit.BackColor = System.Drawing.Color.Transparent;
-            this.btnExit.BackgroundColor = System.Drawing.Color.Transparent;
-            this.btnExit.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnExit.BorderRadius = 0;
-            this.btnExit.BorderSize = 0;
-            this.btnExit.FlatAppearance.BorderSize = 0;
-            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExit.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Bold);
-            this.btnExit.ForeColor = System.Drawing.Color.Crimson;
-            this.btnExit.Location = new System.Drawing.Point(47, 2);
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(150, 40);
-            this.btnExit.TabIndex = 3;
-            this.btnExit.Text = "SAIR";
-            this.btnExit.TextColor = System.Drawing.Color.Crimson;
-            this.btnExit.UseVisualStyleBackColor = false;
-            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
-            this.btnExit.MouseEnter += new System.EventHandler(this.btnExit_MouseEnter);
-            this.btnExit.MouseLeave += new System.EventHandler(this.btnExit_MouseLeave);
-            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(819, 450);
+            this.ClientSize = new System.Drawing.Size(922, 450);
             this.Controls.Add(this.lstv);
             this.Controls.Add(this.btnMenu);
             this.Controls.Add(this.panelMenu);

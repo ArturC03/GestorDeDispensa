@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySqlX.XDevAPI.Relational;
+using System;
 using System.CodeDom;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,62 +8,37 @@ using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Main
+namespace Main.Classes
 {
-    internal class Produto
+    internal class Produto : Tabela
     {
-        private static string[] produtoFields = {"idProduto","idCategoria","nome","preco","quantidade","marca"};
+        private static string[] fields = {"idProduto","idCategoria","nome","preco","quantidade","marca"};
        
-        public static string[] ProdutoFields
+        public static string[] Fields
         {
-            get => produtoFields;
-        }
-        private bool ValidField(string field)
-        {
-                foreach (string produtoField in produtoFields)
-                    if (0 == string.Compare(produtoField, field) || 0 == string.Compare("*", field))
-                        return true;
-                return false;
-
-        }
-        private bool ValidField(string[] fields)
-        {
-            int cont = 0;
-            if (1 == fields.Length)
-                return ValidField(fields[0]);
-            for (int i = 0; i < produtoFields.Length; i++)
-                foreach (string produtoField in produtoFields)
-                    if (0 == string.Compare(produtoField, fields[i]))
-                        cont++;
-            if(fields.Length == cont)
-                return true;
-            else
-                return false;
-
+            get => fields;
         }
 
-        public bool Insert(string[] fields, string[] values)
+        public override bool Insert(string[] inputFields, string[] values)
         {
-            if (!ValidField(fields))
+            if (!ValidField(inputFields))
                 return false;
             
             DBConnect dBConnect = new DBConnect();
 
-            dBConnect.Insert("Produto", fields, values);
+            dBConnect.Insert("Produto", inputFields, values);
             return true;
         }
 
-        //Update statement
-        public bool Update(string[] changes)
+        public override bool Update(string[] changes)
         {
             DBConnect dBConnect = new DBConnect();
 
             dBConnect.Update("Produto", changes);
             return true;
         }
-
-        //Delete statement
-        public bool Delete(string condition = null)
+        
+        public override bool Delete(string condition = null)
         {
             DBConnect dBConnect = new DBConnect();
             dBConnect.Delete("Produto", condition);
@@ -70,29 +46,27 @@ namespace Main
 
         }
 
-        //Select statement
-        public List<string>[] Select(string[] fields, string condition = null)
+        public override List<string>[] Select(string[] inputFields, string condition = null)
         {
             if (fields[0] == "*")
-                fields = ProdutoFields;
+                inputFields = fields;
             else
-                if (!ValidField(fields))
+                if (!ValidField(inputFields))
                     return null;
             
             DBConnect dBConnect = new DBConnect();
 
-            return dBConnect.Select("Produto", fields, condition);
+            return dBConnect.Select("Produto", inputFields, condition);
         }
 
-        //Count statement
-        public int Count(string field)
+        public override int Count(string inputField)
         {
-            if (!ValidField(field))
+            if (!ValidField(inputField))
                 return -2;
             
             DBConnect dBConnect = new DBConnect();
 
-            return dBConnect.Count("Produto", field);
+            return dBConnect.Count("Produto", inputField);
             
         }
     }

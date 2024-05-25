@@ -5,57 +5,32 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Main
+namespace Main.Classes
 {
-    internal class Categoria
+    internal class Categoria:Tabela
     {
-        private static string[] categoriaFields= {"idCategoria","categoria"};
+        private static string[] fields = {"idCategoria", "categoria"};
         
-        public static string[] CategoriaFields
+        public static string[] Fields
         {
-            get => categoriaFields;
+            get => Fields;
         }
 
-        private bool ValidField(string field)
+        public override bool Insert(string[] inputFields, string[] values)
         {
-                foreach (string categoriaField in categoriaFields)
-                    if (0 == string.Compare(categoriaField, field) || 0 == string.Compare("*", field))
-                        return true;
-                return false;
-
-        }
-        private bool ValidField(string[] fields)
-        {
-            int cont = 0;
-            if(fields.Length == 1)
-                return ValidField(fields[0]);
-            for (int i = 0; i < categoriaFields.Length; i++)
-                foreach (string categoriaField in categoriaFields)
-                    if (0 == string.Compare(categoriaField, fields[i]))
-                        cont++;
-            if(fields.Length == cont)
-                return true;
+            if (inputFields[0] == "*")
+                inputFields = fields;
             else
-                return false;
-
-        }
-
-        public bool Insert(string[] fields, string[] values)
-        {
-            if (fields[0] == "*")
-                fields = categoriaFields;
-            else
-               if (!ValidField(fields))
+               if (!ValidField(inputFields))
                 return false;
 
             DBConnect dBConnect = new DBConnect();
 
-            dBConnect.Insert("Categoria", fields, values);
+            dBConnect.Insert("Categoria", inputFields, values);
             return true;
         }
 
-        //Update statement
-        public bool Update(string[] changes)
+        public override bool Update(string[] changes)
         {
             DBConnect dBConnect = new DBConnect();
 
@@ -63,38 +38,34 @@ namespace Main
             return true;
         }
 
-        //Delete statement
-        public bool Delete(string condition = null)
+        public override bool Delete(string condition = null)
         {
             DBConnect dBConnect = new DBConnect();
             dBConnect.Delete("Categoria", condition);
             return true;
 
         }
-
-        //Select statement
-        public List<string>[] Select(string[] fields, string condition = null)
+        public override List<string>[] Select(string[] inputFields, string condition = null)
         {
-            if (fields[0] == "*")
-                fields = categoriaFields;
+            if (inputFields[0] == "*")
+                inputFields = fields;
             else
-                if (!ValidField(fields))
+                if (!ValidField(inputFields))
                 return null;
             
             DBConnect dBConnect = new DBConnect();
 
-            return dBConnect.Select("Categoria", fields, condition);
+            return dBConnect.Select("Categoria", inputFields, condition);
         }
 
-        //Count statement
-        public int Count(string field)
+        public override int Count(string inputField)
         {
-            if (!ValidField(field))
+            if (!ValidField(inputField))
                 return -2;
                
             DBConnect dBConnect = new DBConnect();
 
-            return dBConnect.Count("Categoria", field);
+            return dBConnect.Count("Categoria", inputField);
             
         }
 

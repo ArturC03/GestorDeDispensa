@@ -52,6 +52,7 @@
   <ItemGroup>
     <Compile Include="Classes\Categoria.cs" />
     <Compile Include="Classes\DBConnect.cs" />
+    <Compile Include="Classes\Tabela.cs" />
     <Compile Include="LogIn.cs">
       <SubType>Form</SubType>
     </Compile>

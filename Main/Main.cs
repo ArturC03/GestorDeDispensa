@@ -131,7 +131,7 @@ namespace Main
         {
             lstvProduto.Items.Clear();
             lstvProduto.Columns.Clear();
-            ColumnHeader[] titulos= new ColumnHeader[Produto.ProdutoFields.Length];
+            ColumnHeader[] titulos= new ColumnHeader[Produto.Fields.Length];
             int k = 0;
 
             for(int i = 0; i <  titulos.Length; i++)
@@ -141,9 +141,9 @@ namespace Main
 
             foreach(ColumnHeader col in titulos)
             {   
-                col.Name = Produto.ProdutoFields[k];
-                char firstChar = Char.ToUpper(Produto.ProdutoFields[k][0]);
-                string capitalizedStr = firstChar + Produto.ProdutoFields[k].Substring(1);
+                col.Name = Produto.Fields[k];
+                char firstChar = Char.ToUpper(Produto.Fields[k][0]);
+                string capitalizedStr = firstChar + Produto.Fields[k].Substring(1);
                 col.Text = capitalizedStr;
                 col.Width = 100;
                 k++;
@@ -158,7 +158,7 @@ namespace Main
         {
             lstvCategoria.Items.Clear();
             lstvCategoria.Columns.Clear();
-            ColumnHeader[] titulos= new ColumnHeader[Categoria.CategoriaFields.Length];
+            ColumnHeader[] titulos= new ColumnHeader[Categoria.Fields.Length];
             int k = 0;
 
             for(int i = 0; i <  titulos.Length; i++)
@@ -168,9 +168,9 @@ namespace Main
 
             foreach(ColumnHeader col in titulos)
             {   
-                col.Name = Categoria.CategoriaFields[k];
-                char firstChar = Char.ToUpper(Categoria.CategoriaFields[k][0]);
-                string capitalizedStr = firstChar + Categoria.CategoriaFields[k].Substring(1);
+                col.Name = Categoria.Fields[k];
+                char firstChar = Char.ToUpper(Categoria.Fields[k][0]);
+                string capitalizedStr = firstChar + Categoria.Fields[k].Substring(1);
                 col.Text = capitalizedStr;
                 col.Width = 100;
                 k++;
@@ -185,7 +185,7 @@ namespace Main
             values = produto.Select(fields);
             // Configurações da ListView
             lstvProduto.View = View.Details;
-            lstvProduto.FullRowSelect = false;
+            lstvProduto.FullRowSelect = true;
             lstvProduto.MultiSelect = true;
 
             List<string> row = new List<string>();
@@ -206,7 +206,7 @@ namespace Main
             values = categoria.Select(fields);
             // Configurações da ListView
             lstvCategoria.View = View.Details;
-            lstvCategoria.FullRowSelect = false;
+            lstvCategoria.FullRowSelect = true;
             lstvCategoria.MultiSelect = true;
 
             List<string> row = new List<string>();
