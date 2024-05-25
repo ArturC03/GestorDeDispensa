@@ -4,26 +4,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Main.Classes
+namespace Main
 {
     internal abstract class Tabela
     {
-        private static string[] fields;
         
-
-        protected static bool ValidField(string inputField)
+        protected static bool ValidField(string inputField, string[] fields)
         {
-                foreach (string field in fields )
+                foreach (string field in fields)
                     if (0 == string.Compare(field,inputField) || 0 == string.Compare("*", inputField))
                         return true;
                 return false;
 
         }
-        protected static bool ValidField(string[] inputFields)
+        protected static bool ValidField(string[] inputFields, string[] fields)
         {
             int cont = 0;
             if (1 == inputFields.Length)
-                return ValidField(inputFields[0]);
+                return ValidField(inputFields[0], fields);
             for (int i = 0; i < fields.Length; i++)
                 foreach (string field in fields)
                     if (0 == string.Compare(field, inputFields[i]))

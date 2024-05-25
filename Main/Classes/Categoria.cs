@@ -5,7 +5,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Main.Classes
+namespace Main
 {
     internal class Categoria:Tabela
     {
@@ -13,7 +13,7 @@ namespace Main.Classes
         
         public static string[] Fields
         {
-            get => Fields;
+            get => fields;
         }
 
         public override bool Insert(string[] inputFields, string[] values)
@@ -21,7 +21,7 @@ namespace Main.Classes
             if (inputFields[0] == "*")
                 inputFields = fields;
             else
-               if (!ValidField(inputFields))
+               if (!ValidField(inputFields , fields))
                 return false;
 
             DBConnect dBConnect = new DBConnect();
@@ -50,17 +50,17 @@ namespace Main.Classes
             if (inputFields[0] == "*")
                 inputFields = fields;
             else
-                if (!ValidField(inputFields))
+                if (!ValidField(inputFields, fields))
                 return null;
             
             DBConnect dBConnect = new DBConnect();
-
+            
             return dBConnect.Select("Categoria", inputFields, condition);
         }
 
         public override int Count(string inputField)
         {
-            if (!ValidField(inputField))
+            if (!ValidField(inputField, fields))
                 return -2;
                
             DBConnect dBConnect = new DBConnect();

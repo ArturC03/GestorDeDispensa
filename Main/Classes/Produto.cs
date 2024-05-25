@@ -8,7 +8,7 @@ using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Main.Classes
+namespace Main
 {
     internal class Produto : Tabela
     {
@@ -21,7 +21,7 @@ namespace Main.Classes
 
         public override bool Insert(string[] inputFields, string[] values)
         {
-            if (!ValidField(inputFields))
+            if (!ValidField(inputFields, fields))
                 return false;
             
             DBConnect dBConnect = new DBConnect();
@@ -48,10 +48,10 @@ namespace Main.Classes
 
         public override List<string>[] Select(string[] inputFields, string condition = null)
         {
-            if (fields[0] == "*")
+            if (inputFields[0] == "*")
                 inputFields = fields;
             else
-                if (!ValidField(inputFields))
+                if (!ValidField(inputFields, fields))
                     return null;
             
             DBConnect dBConnect = new DBConnect();
@@ -61,7 +61,7 @@ namespace Main.Classes
 
         public override int Count(string inputField)
         {
-            if (!ValidField(inputField))
+            if (!ValidField(inputField, fields))
                 return -2;
             
             DBConnect dBConnect = new DBConnect();

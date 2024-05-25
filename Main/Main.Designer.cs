@@ -94,6 +94,7 @@
             this.btnHome.Text = "HOME";
             this.btnHome.TextColor = System.Drawing.Color.Crimson;
             this.btnHome.UseVisualStyleBackColor = false;
+            this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
             this.btnHome.MouseEnter += new System.EventHandler(this.btnHome_MouseEnter);
             this.btnHome.MouseLeave += new System.EventHandler(this.btnHome_MouseLeave);
             this.btnHome.MouseHover += new System.EventHandler(this.btnHome_MouseHover);

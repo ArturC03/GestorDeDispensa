@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
+
 namespace Main
 {
     public partial class Main : Form
@@ -230,6 +231,11 @@ namespace Main
 
             LoadCategoriaListView(ref lstv, fields);
             
+        }
+
+        private void btnHome_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
