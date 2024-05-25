@@ -13,10 +13,14 @@ namespace Main
     {
         private static string[] produtoFields = {"idProduto","idCategoria","nome","preco","quantidade","marca"};
        
+        public static string[] ProdutoFields
+        {
+            get => produtoFields;
+        }
         private bool ValidField(string field)
         {
                 foreach (string produtoField in produtoFields)
-                    if (0 == string.Compare(produtoField, field) || 0 == string.Compare(produtoField, field))
+                    if (0 == string.Compare(produtoField, field) || 0 == string.Compare("*", field))
                         return true;
                 return false;
 
@@ -24,9 +28,11 @@ namespace Main
         private bool ValidField(string[] fields)
         {
             int cont = 0;
+            if (1 == fields.Length)
+                return ValidField(fields[0]);
             for (int i = 0; i < produtoFields.Length; i++)
                 foreach (string produtoField in produtoFields)
-                    if (0 == string.Compare(produtoField, fields[i]) || 0 == string.Compare(produtoField, fields[i]))
+                    if (0 == string.Compare(produtoField, fields[i]))
                         cont++;
             if(fields.Length == cont)
                 return true;
@@ -67,9 +73,11 @@ namespace Main
         //Select statement
         public List<string>[] Select(string[] fields, string condition = null)
         {
-
-            if (!ValidField(fields))
-                return null;
+            if (fields[0] == "*")
+                fields = ProdutoFields;
+            else
+                if (!ValidField(fields))
+                    return null;
             
             DBConnect dBConnect = new DBConnect();
 

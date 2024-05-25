@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net.Security;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -43,7 +44,8 @@ namespace Main
 
         private void btnGestDispensa_Click(object sender, EventArgs e)
         {
-
+            CreateProdutoListView(ref lstv);
+            LoadProdutoListView(ref lstv, "*".Split());
         }
 
         private void btnGestDispensa_MouseEnter(object sender, EventArgs e)
@@ -121,19 +123,70 @@ namespace Main
 
         private void Main_Load(object sender, EventArgs e)
         {
+            CreateProdutoListView(ref lstv);
+            
+            LoadProdutoListView(ref lstv, "*".Split());
+        }
+        private void CreateProdutoListView(ref System.Windows.Forms.ListView lstvProduto)
+        {
+            lstvProduto.Items.Clear();
+            lstvProduto.Columns.Clear();
+            ColumnHeader[] titulos= new ColumnHeader[Produto.ProdutoFields.Length];
+            int k = 0;
+
+            for(int i = 0; i <  titulos.Length; i++)
+            {
+                titulos[i] = new ColumnHeader();
+            }
+
+            foreach(ColumnHeader col in titulos)
+            {   
+                col.Name = Produto.ProdutoFields[k];
+                char firstChar = Char.ToUpper(Produto.ProdutoFields[k][0]);
+                string capitalizedStr = firstChar + Produto.ProdutoFields[k].Substring(1);
+                col.Text = capitalizedStr;
+                col.Width = 100;
+                k++;
+            }
+            lstvProduto.Columns.AddRange(titulos);
+
         }
 
-        private void btnGestCategoria_Click(object sender, EventArgs e)
-        {
-            Categoria categoria = new Categoria();
 
-            string[] fields = { "*" };
+        
+        private void CreateCategoriaListView(ref System.Windows.Forms.ListView lstvCategoria)
+        {
+            lstvCategoria.Items.Clear();
+            lstvCategoria.Columns.Clear();
+            ColumnHeader[] titulos= new ColumnHeader[Categoria.CategoriaFields.Length];
+            int k = 0;
+
+            for(int i = 0; i <  titulos.Length; i++)
+            {
+                titulos[i] = new ColumnHeader();
+            }
+
+            foreach(ColumnHeader col in titulos)
+            {   
+                col.Name = Categoria.CategoriaFields[k];
+                char firstChar = Char.ToUpper(Categoria.CategoriaFields[k][0]);
+                string capitalizedStr = firstChar + Categoria.CategoriaFields[k].Substring(1);
+                col.Text = capitalizedStr;
+                col.Width = 100;
+                k++;
+            }
+            lstvCategoria.Columns.AddRange(titulos);
+
+        }
+        private void LoadProdutoListView(ref System.Windows.Forms.ListView lstvProduto, string[] fields)
+        {
+            Produto produto = new Produto();
             List<string>[] values;
-            values = categoria.Select(fields);
+            values = produto.Select(fields);
             // Configurações da ListView
-            lstvDispensa.View = View.Details;
-            lstvDispensa.FullRowSelect = true;
-            lstvDispensa.MultiSelect = true;
+            lstvProduto.View = View.Details;
+            lstvProduto.FullRowSelect = false;
+            lstvProduto.MultiSelect = true;
 
             List<string> row = new List<string>();
             for (int j = 0; j < values[j].Count; j++) {
@@ -142,9 +195,41 @@ namespace Main
                 }
                 string[] linha = row.ToArray();
                     var listViewItem = new ListViewItem(linha);
-                    lstvDispensa.Items.Add(listViewItem);
+                    lstvProduto.Items.Add(listViewItem);
            }
 
+        }
+        private void LoadCategoriaListView(ref System.Windows.Forms.ListView lstvCategoria, string[] fields)
+        {
+            Categoria categoria = new Categoria();
+            List<string>[] values;
+            values = categoria.Select(fields);
+            // Configurações da ListView
+            lstvCategoria.View = View.Details;
+            lstvCategoria.FullRowSelect = false;
+            lstvCategoria.MultiSelect = true;
+
+            List<string> row = new List<string>();
+            for (int j = 0; j < values[j].Count; j++) {
+                for (int i = 0; values.Length > i; i++) {
+                    row.Add(values[i][j]);
+                }
+                string[] linha = row.ToArray();
+                    var listViewItem = new ListViewItem(linha);
+                    lstvCategoria.Items.Add(listViewItem);
+           }
+
+        }
+
+        private void btnGestCategoria_Click(object sender, EventArgs e)
+        {
+  
+            CreateCategoriaListView(ref lstv);
+
+            string[] fields = { "*" };
+
+            LoadCategoriaListView(ref lstv, fields);
+            
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -9,7 +10,12 @@ namespace Main
     internal class Categoria
     {
         private static string[] categoriaFields= {"idCategoria","categoria"};
-       
+        
+        public static string[] CategoriaFields
+        {
+            get => categoriaFields;
+        }
+
         private bool ValidField(string field)
         {
                 foreach (string categoriaField in categoriaFields)
@@ -36,9 +42,12 @@ namespace Main
 
         public bool Insert(string[] fields, string[] values)
         {
-            if (!ValidField(fields))
+            if (fields[0] == "*")
+                fields = categoriaFields;
+            else
+               if (!ValidField(fields))
                 return false;
-            
+
             DBConnect dBConnect = new DBConnect();
 
             dBConnect.Insert("Categoria", fields, values);
@@ -68,7 +77,8 @@ namespace Main
         {
             if (fields[0] == "*")
                 fields = categoriaFields;
-            if (!ValidField(fields))
+            else
+                if (!ValidField(fields))
                 return null;
             
             DBConnect dBConnect = new DBConnect();
@@ -81,7 +91,7 @@ namespace Main
         {
             if (!ValidField(field))
                 return -2;
-            
+               
             DBConnect dBConnect = new DBConnect();
 
             return dBConnect.Count("Categoria", field);

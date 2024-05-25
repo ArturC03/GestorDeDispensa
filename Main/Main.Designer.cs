@@ -30,25 +30,29 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.panelHome = new System.Windows.Forms.Panel();
-            this.btnHome = new CustomControls.RJControls.RJButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelMenu = new System.Windows.Forms.FlowLayoutPanel();
             this.panelGestDispensa = new System.Windows.Forms.Panel();
-            this.btnGestDispensa = new CustomControls.RJControls.RJButton();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panelGestCategoria = new System.Windows.Forms.Panel();
-            this.btnGestCategoria = new CustomControls.RJControls.RJButton();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.panelLogOut = new System.Windows.Forms.Panel();
-            this.btnLogOut = new CustomControls.RJControls.RJButton();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.panelExit = new System.Windows.Forms.Panel();
-            this.btnExit = new CustomControls.RJControls.RJButton();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.btnMenu = new CustomControls.RJControls.RJButton();
-            this.lstvDispensa = new System.Windows.Forms.ListView();
+            this.lstv = new System.Windows.Forms.ListView();
+            this.ID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.idCategoria = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.categoria = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.nome = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.preco = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.quantidade = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.marca = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.btnMenu = new CustomControls.RJControls.RJButton();
+            this.btnHome = new CustomControls.RJControls.RJButton();
+            this.btnGestDispensa = new CustomControls.RJControls.RJButton();
+            this.btnGestCategoria = new CustomControls.RJControls.RJButton();
+            this.btnLogOut = new CustomControls.RJControls.RJButton();
+            this.btnExit = new CustomControls.RJControls.RJButton();
             this.panelHome.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelMenu.SuspendLayout();
@@ -71,28 +75,6 @@
             this.panelHome.Name = "panelHome";
             this.panelHome.Size = new System.Drawing.Size(200, 45);
             this.panelHome.TabIndex = 1;
-            // 
-            // btnHome
-            // 
-            this.btnHome.BackColor = System.Drawing.Color.Transparent;
-            this.btnHome.BackgroundColor = System.Drawing.Color.Transparent;
-            this.btnHome.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnHome.BorderRadius = 0;
-            this.btnHome.BorderSize = 0;
-            this.btnHome.FlatAppearance.BorderSize = 0;
-            this.btnHome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnHome.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Bold);
-            this.btnHome.ForeColor = System.Drawing.Color.Crimson;
-            this.btnHome.Location = new System.Drawing.Point(47, 2);
-            this.btnHome.Name = "btnHome";
-            this.btnHome.Size = new System.Drawing.Size(150, 40);
-            this.btnHome.TabIndex = 3;
-            this.btnHome.Text = "HOME";
-            this.btnHome.TextColor = System.Drawing.Color.Crimson;
-            this.btnHome.UseVisualStyleBackColor = false;
-            this.btnHome.MouseEnter += new System.EventHandler(this.btnHome_MouseEnter);
-            this.btnHome.MouseLeave += new System.EventHandler(this.btnHome_MouseLeave);
-            this.btnHome.MouseHover += new System.EventHandler(this.btnHome_MouseHover);
             // 
             // pictureBox1
             // 
@@ -130,6 +112,165 @@
             this.panelGestDispensa.Size = new System.Drawing.Size(200, 45);
             this.panelGestDispensa.TabIndex = 2;
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.BackgroundImage")));
+            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox2.Location = new System.Drawing.Point(3, 2);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(40, 41);
+            this.pictureBox2.TabIndex = 1;
+            this.pictureBox2.TabStop = false;
+            // 
+            // panelGestCategoria
+            // 
+            this.panelGestCategoria.BackColor = System.Drawing.Color.White;
+            this.panelGestCategoria.Controls.Add(this.btnGestCategoria);
+            this.panelGestCategoria.Controls.Add(this.pictureBox3);
+            this.panelGestCategoria.Location = new System.Drawing.Point(3, 112);
+            this.panelGestCategoria.Name = "panelGestCategoria";
+            this.panelGestCategoria.Size = new System.Drawing.Size(200, 45);
+            this.panelGestCategoria.TabIndex = 3;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox3.BackgroundImage")));
+            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox3.Location = new System.Drawing.Point(3, 2);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(40, 41);
+            this.pictureBox3.TabIndex = 1;
+            this.pictureBox3.TabStop = false;
+            // 
+            // panelLogOut
+            // 
+            this.panelLogOut.BackColor = System.Drawing.Color.White;
+            this.panelLogOut.Controls.Add(this.btnLogOut);
+            this.panelLogOut.Controls.Add(this.pictureBox4);
+            this.panelLogOut.Location = new System.Drawing.Point(3, 163);
+            this.panelLogOut.Name = "panelLogOut";
+            this.panelLogOut.Size = new System.Drawing.Size(200, 45);
+            this.panelLogOut.TabIndex = 4;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox4.BackgroundImage")));
+            this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox4.Location = new System.Drawing.Point(3, 2);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(40, 41);
+            this.pictureBox4.TabIndex = 1;
+            this.pictureBox4.TabStop = false;
+            // 
+            // panelExit
+            // 
+            this.panelExit.BackColor = System.Drawing.Color.White;
+            this.panelExit.Controls.Add(this.btnExit);
+            this.panelExit.Controls.Add(this.pictureBox5);
+            this.panelExit.Location = new System.Drawing.Point(3, 214);
+            this.panelExit.Name = "panelExit";
+            this.panelExit.Size = new System.Drawing.Size(200, 45);
+            this.panelExit.TabIndex = 5;
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox5.BackgroundImage")));
+            this.pictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox5.Location = new System.Drawing.Point(3, 2);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(40, 41);
+            this.pictureBox5.TabIndex = 1;
+            this.pictureBox5.TabStop = false;
+            // 
+            // lstv
+            // 
+            this.lstv.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lstv.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.ID,
+            this.idCategoria,
+            this.nome,
+            this.preco,
+            this.quantidade,
+            this.marca});
+            this.lstv.GridLines = true;
+            this.lstv.HideSelection = false;
+            this.lstv.Location = new System.Drawing.Point(259, 58);
+            this.lstv.Name = "lstv";
+            this.lstv.Size = new System.Drawing.Size(456, 271);
+            this.lstv.TabIndex = 2;
+            this.lstv.UseCompatibleStateImageBehavior = false;
+            this.lstv.View = System.Windows.Forms.View.List;
+            // 
+            // ID
+            // 
+            this.ID.Text = "idProduto";
+            // 
+            // idCategoria
+            // 
+            this.idCategoria.Text = "Categoria";
+            // 
+            // nome
+            // 
+            this.nome.Text = "Nome";
+            // 
+            // preco
+            // 
+            this.preco.Text = "Preço";
+            // 
+            // quantidade
+            // 
+            this.quantidade.Text = "Quantidade";
+            // 
+            // marca
+            // 
+            this.marca.Text = "Marca";
+            // 
+            // btnMenu
+            // 
+            this.btnMenu.BackColor = System.Drawing.Color.Transparent;
+            this.btnMenu.BackgroundColor = System.Drawing.Color.Transparent;
+            this.btnMenu.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnMenu.BackgroundImage")));
+            this.btnMenu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnMenu.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnMenu.BorderRadius = 0;
+            this.btnMenu.BorderSize = 0;
+            this.btnMenu.FlatAppearance.BorderSize = 0;
+            this.btnMenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMenu.ForeColor = System.Drawing.Color.White;
+            this.btnMenu.Location = new System.Drawing.Point(12, 12);
+            this.btnMenu.Name = "btnMenu";
+            this.btnMenu.Size = new System.Drawing.Size(42, 40);
+            this.btnMenu.TabIndex = 1;
+            this.btnMenu.TextColor = System.Drawing.Color.White;
+            this.btnMenu.UseVisualStyleBackColor = false;
+            this.btnMenu.Click += new System.EventHandler(this.btnMenu_Click);
+            // 
+            // btnHome
+            // 
+            this.btnHome.BackColor = System.Drawing.Color.Transparent;
+            this.btnHome.BackgroundColor = System.Drawing.Color.Transparent;
+            this.btnHome.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnHome.BorderRadius = 0;
+            this.btnHome.BorderSize = 0;
+            this.btnHome.FlatAppearance.BorderSize = 0;
+            this.btnHome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHome.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Bold);
+            this.btnHome.ForeColor = System.Drawing.Color.Crimson;
+            this.btnHome.Location = new System.Drawing.Point(47, 2);
+            this.btnHome.Name = "btnHome";
+            this.btnHome.Size = new System.Drawing.Size(150, 40);
+            this.btnHome.TabIndex = 3;
+            this.btnHome.Text = "HOME";
+            this.btnHome.TextColor = System.Drawing.Color.Crimson;
+            this.btnHome.UseVisualStyleBackColor = false;
+            this.btnHome.MouseEnter += new System.EventHandler(this.btnHome_MouseEnter);
+            this.btnHome.MouseLeave += new System.EventHandler(this.btnHome_MouseLeave);
+            this.btnHome.MouseHover += new System.EventHandler(this.btnHome_MouseHover);
+            // 
             // btnGestDispensa
             // 
             this.btnGestDispensa.BackColor = System.Drawing.Color.Transparent;
@@ -151,27 +292,6 @@
             this.btnGestDispensa.Click += new System.EventHandler(this.btnGestDispensa_Click);
             this.btnGestDispensa.MouseEnter += new System.EventHandler(this.btnGestDispensa_MouseEnter);
             this.btnGestDispensa.MouseLeave += new System.EventHandler(this.btnGestDispensa_MouseLeave);
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.BackgroundImage")));
-            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox2.Location = new System.Drawing.Point(3, 2);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(40, 41);
-            this.pictureBox2.TabIndex = 1;
-            this.pictureBox2.TabStop = false;
-            // 
-            // panelGestCategoria
-            // 
-            this.panelGestCategoria.BackColor = System.Drawing.Color.White;
-            this.panelGestCategoria.Controls.Add(this.btnGestCategoria);
-            this.panelGestCategoria.Controls.Add(this.pictureBox3);
-            this.panelGestCategoria.Location = new System.Drawing.Point(3, 112);
-            this.panelGestCategoria.Name = "panelGestCategoria";
-            this.panelGestCategoria.Size = new System.Drawing.Size(200, 45);
-            this.panelGestCategoria.TabIndex = 3;
             // 
             // btnGestCategoria
             // 
@@ -195,27 +315,6 @@
             this.btnGestCategoria.MouseEnter += new System.EventHandler(this.btnGestCategoria_MouseEnter);
             this.btnGestCategoria.MouseLeave += new System.EventHandler(this.btnGestCategoria_MouseLeave);
             // 
-            // pictureBox3
-            // 
-            this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox3.BackgroundImage")));
-            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox3.Location = new System.Drawing.Point(3, 2);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(40, 41);
-            this.pictureBox3.TabIndex = 1;
-            this.pictureBox3.TabStop = false;
-            // 
-            // panelLogOut
-            // 
-            this.panelLogOut.BackColor = System.Drawing.Color.White;
-            this.panelLogOut.Controls.Add(this.btnLogOut);
-            this.panelLogOut.Controls.Add(this.pictureBox4);
-            this.panelLogOut.Location = new System.Drawing.Point(3, 163);
-            this.panelLogOut.Name = "panelLogOut";
-            this.panelLogOut.Size = new System.Drawing.Size(200, 45);
-            this.panelLogOut.TabIndex = 4;
-            // 
             // btnLogOut
             // 
             this.btnLogOut.BackColor = System.Drawing.Color.Transparent;
@@ -237,27 +336,6 @@
             this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
             this.btnLogOut.MouseEnter += new System.EventHandler(this.btnLogOut_MouseEnter);
             this.btnLogOut.MouseLeave += new System.EventHandler(this.btnLogOut_MouseLeave);
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox4.BackgroundImage")));
-            this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox4.Location = new System.Drawing.Point(3, 2);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(40, 41);
-            this.pictureBox4.TabIndex = 1;
-            this.pictureBox4.TabStop = false;
-            // 
-            // panelExit
-            // 
-            this.panelExit.BackColor = System.Drawing.Color.White;
-            this.panelExit.Controls.Add(this.btnExit);
-            this.panelExit.Controls.Add(this.pictureBox5);
-            this.panelExit.Location = new System.Drawing.Point(3, 214);
-            this.panelExit.Name = "panelExit";
-            this.panelExit.Size = new System.Drawing.Size(200, 45);
-            this.panelExit.TabIndex = 5;
             // 
             // btnExit
             // 
@@ -281,66 +359,13 @@
             this.btnExit.MouseEnter += new System.EventHandler(this.btnExit_MouseEnter);
             this.btnExit.MouseLeave += new System.EventHandler(this.btnExit_MouseLeave);
             // 
-            // pictureBox5
-            // 
-            this.pictureBox5.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox5.BackgroundImage")));
-            this.pictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox5.Location = new System.Drawing.Point(3, 2);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(40, 41);
-            this.pictureBox5.TabIndex = 1;
-            this.pictureBox5.TabStop = false;
-            // 
-            // btnMenu
-            // 
-            this.btnMenu.BackColor = System.Drawing.Color.Transparent;
-            this.btnMenu.BackgroundColor = System.Drawing.Color.Transparent;
-            this.btnMenu.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnMenu.BackgroundImage")));
-            this.btnMenu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnMenu.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnMenu.BorderRadius = 0;
-            this.btnMenu.BorderSize = 0;
-            this.btnMenu.FlatAppearance.BorderSize = 0;
-            this.btnMenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMenu.ForeColor = System.Drawing.Color.White;
-            this.btnMenu.Location = new System.Drawing.Point(12, 12);
-            this.btnMenu.Name = "btnMenu";
-            this.btnMenu.Size = new System.Drawing.Size(42, 40);
-            this.btnMenu.TabIndex = 1;
-            this.btnMenu.TextColor = System.Drawing.Color.White;
-            this.btnMenu.UseVisualStyleBackColor = false;
-            this.btnMenu.Click += new System.EventHandler(this.btnMenu_Click);
-            // 
-            // lstvDispensa
-            // 
-            this.lstvDispensa.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.idCategoria,
-            this.categoria});
-            this.lstvDispensa.GridLines = true;
-            this.lstvDispensa.HideSelection = false;
-            this.lstvDispensa.Location = new System.Drawing.Point(240, 119);
-            this.lstvDispensa.Name = "lstvDispensa";
-            this.lstvDispensa.Size = new System.Drawing.Size(456, 261);
-            this.lstvDispensa.TabIndex = 2;
-            this.lstvDispensa.UseCompatibleStateImageBehavior = false;
-            this.lstvDispensa.View = System.Windows.Forms.View.List;
-            // 
-            // idCategoria
-            // 
-            this.idCategoria.Text = "idCategoria";
-            // 
-            // categoria
-            // 
-            this.categoria.Text = "Categoria";
-            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(819, 450);
-            this.Controls.Add(this.lstvDispensa);
+            this.Controls.Add(this.lstv);
             this.Controls.Add(this.btnMenu);
             this.Controls.Add(this.panelMenu);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -384,8 +409,12 @@
         private CustomControls.RJControls.RJButton btnExit;
         private System.Windows.Forms.PictureBox pictureBox5;
         private CustomControls.RJControls.RJButton btnMenu;
-        private System.Windows.Forms.ListView lstvDispensa;
+        private System.Windows.Forms.ColumnHeader ID;
         private System.Windows.Forms.ColumnHeader idCategoria;
-        private System.Windows.Forms.ColumnHeader categoria;
+        public System.Windows.Forms.ListView lstv;
+        private System.Windows.Forms.ColumnHeader nome;
+        private System.Windows.Forms.ColumnHeader preco;
+        private System.Windows.Forms.ColumnHeader quantidade;
+        private System.Windows.Forms.ColumnHeader marca;
     }
 }
