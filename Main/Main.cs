@@ -7,15 +7,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Main
 {
     public partial class Main : Form
     {
-        
-        public Main()
+        private LogIn logIn = new LogIn();
+        public Main(LogIn logIn)
         {
             InitializeComponent();
+            this.logIn = logIn;
         }
 
         private void Main_FormClosing(object sender, FormClosingEventArgs e)
@@ -100,7 +102,7 @@ namespace Main
 
         private void btnMenu_Click(object sender, EventArgs e)
         {
-            if(panelMenu.Visible)
+            if (panelMenu.Visible)
                 panelMenu.Visible = false;
             else
                 panelMenu.Visible = true;
@@ -113,15 +115,39 @@ namespace Main
 
         private void btnLogOut_Click(object sender, EventArgs e)
         {
-            LogIn logIn = new LogIn();
             logIn.Show();
-            
+            this.Hide();
         }
 
         private void Main_Load(object sender, EventArgs e)
         {
-            LogIn logIn = new LogIn();
-            logIn.Hide();
+        }
+
+        private void btnGestCategoria_Click(object sender, EventArgs e)
+        {
+            Categoria categoria = new Categoria();
+
+            string[] fields = { "*" };
+            List<string>[] values;
+            values = categoria.Select(fields);
+            // Configurações da ListView
+            lstvDispensa.View = View.Details;
+            lstvDispensa.FullRowSelect = true;
+            lstvDispensa.MultiSelect = true;
+
+            List<string> row = new List<string>();
+            for (int j = 0; j < values[j].Count; j++) {
+                for (int i = 0; values.Length > i; i++) {
+                    row.Add(values[i][j]);
+                }
+                string[] linha = row.ToArray();
+                    var listViewItem = new ListViewItem(linha);
+                    lstvDispensa.Items.Add(listViewItem);
+           }
+
         }
     }
 }
+
+
+

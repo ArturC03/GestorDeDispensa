@@ -13,7 +13,7 @@ namespace Main
         private bool ValidField(string field)
         {
                 foreach (string categoriaField in categoriaFields)
-                    if (0 == string.Compare(categoriaField, field) || 0 == string.Compare(categoriaField, field))
+                    if (0 == string.Compare(categoriaField, field) || 0 == string.Compare("*", field))
                         return true;
                 return false;
 
@@ -21,9 +21,11 @@ namespace Main
         private bool ValidField(string[] fields)
         {
             int cont = 0;
+            if(fields.Length == 1)
+                return ValidField(fields[0]);
             for (int i = 0; i < categoriaFields.Length; i++)
                 foreach (string categoriaField in categoriaFields)
-                    if (0 == string.Compare(categoriaField, fields[i]) || 0 == string.Compare(categoriaField, fields[i]))
+                    if (0 == string.Compare(categoriaField, fields[i]))
                         cont++;
             if(fields.Length == cont)
                 return true;
@@ -64,7 +66,8 @@ namespace Main
         //Select statement
         public List<string>[] Select(string[] fields, string condition = null)
         {
-
+            if (fields[0] == "*")
+                fields = categoriaFields;
             if (!ValidField(fields))
                 return null;
             

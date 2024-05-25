@@ -168,9 +168,15 @@ namespace Main
         public List<string>[] Select(string tableName, string[] tableFields,string condition = null)
         {
             string query = $"SELECT ";
-            foreach(string tableField in tableFields)
-                query += $"{database}.{tableName}.{tableField.Trim()}, ";
-            query = query.TrimEnd(',', ' ');
+            if (tableFields[0] != "*")
+            {
+                foreach (string tableField in tableFields)
+                    query += $"{database}.{tableName}.{tableField.Trim()}, ";
+                query = query.TrimEnd(',', ' ');
+            }
+            else
+                query += tableFields[0];
+
             query += $" FROM {database}.{tableName}";
 
             //Create a list to store the result

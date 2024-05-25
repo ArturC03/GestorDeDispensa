@@ -30,13 +30,13 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LogIn));
             this.chkPass = new System.Windows.Forms.CheckBox();
-            this.txtPass = new CustomControls.RJControls.RJTextBox();
-            this.txtUsername = new CustomControls.RJControls.RJTextBox();
-            this.btnLogIn = new CustomControls.RJControls.RJButton();
             this.lblUser = new System.Windows.Forms.Label();
             this.lblPass = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnClose = new CustomControls.RJControls.RJButton();
+            this.btnLogIn = new CustomControls.RJControls.RJButton();
+            this.txtPass = new CustomControls.RJControls.RJTextBox();
+            this.txtUsername = new CustomControls.RJControls.RJTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -53,70 +53,7 @@
             this.chkPass.TabIndex = 5;
             this.chkPass.Text = "Mostrar Password";
             this.chkPass.UseVisualStyleBackColor = false;
-            // 
-            // txtPass
-            // 
-            this.txtPass.BackColor = System.Drawing.SystemColors.Window;
-            this.txtPass.BorderColor = System.Drawing.Color.Crimson;
-            this.txtPass.BorderFocusColor = System.Drawing.Color.Crimson;
-            this.txtPass.BorderRadius = 0;
-            this.txtPass.BorderSize = 2;
-            this.txtPass.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
-            this.txtPass.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.txtPass.Location = new System.Drawing.Point(55, 379);
-            this.txtPass.Margin = new System.Windows.Forms.Padding(4);
-            this.txtPass.Multiline = false;
-            this.txtPass.Name = "txtPass";
-            this.txtPass.Padding = new System.Windows.Forms.Padding(7);
-            this.txtPass.PasswordChar = true;
-            this.txtPass.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.txtPass.PlaceholderText = "";
-            this.txtPass.Size = new System.Drawing.Size(250, 31);
-            this.txtPass.TabIndex = 4;
-            this.txtPass.Texts = "";
-            this.txtPass.UnderlinedStyle = false;
-            // 
-            // txtUsername
-            // 
-            this.txtUsername.BackColor = System.Drawing.SystemColors.Window;
-            this.txtUsername.BorderColor = System.Drawing.Color.Crimson;
-            this.txtUsername.BorderFocusColor = System.Drawing.Color.Crimson;
-            this.txtUsername.BorderRadius = 0;
-            this.txtUsername.BorderSize = 2;
-            this.txtUsername.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUsername.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.txtUsername.Location = new System.Drawing.Point(55, 319);
-            this.txtUsername.Margin = new System.Windows.Forms.Padding(4);
-            this.txtUsername.Multiline = false;
-            this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Padding = new System.Windows.Forms.Padding(7);
-            this.txtUsername.PasswordChar = false;
-            this.txtUsername.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.txtUsername.PlaceholderText = "";
-            this.txtUsername.Size = new System.Drawing.Size(250, 31);
-            this.txtUsername.TabIndex = 3;
-            this.txtUsername.Texts = "";
-            this.txtUsername.UnderlinedStyle = false;
-            // 
-            // btnLogIn
-            // 
-            this.btnLogIn.BackColor = System.Drawing.Color.Crimson;
-            this.btnLogIn.BackgroundColor = System.Drawing.Color.Crimson;
-            this.btnLogIn.BorderColor = System.Drawing.Color.PapayaWhip;
-            this.btnLogIn.BorderRadius = 7;
-            this.btnLogIn.BorderSize = 0;
-            this.btnLogIn.FlatAppearance.BorderSize = 0;
-            this.btnLogIn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLogIn.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Bold);
-            this.btnLogIn.ForeColor = System.Drawing.Color.White;
-            this.btnLogIn.Location = new System.Drawing.Point(55, 454);
-            this.btnLogIn.Name = "btnLogIn";
-            this.btnLogIn.Size = new System.Drawing.Size(250, 40);
-            this.btnLogIn.TabIndex = 6;
-            this.btnLogIn.Text = "Entrar";
-            this.btnLogIn.TextColor = System.Drawing.Color.White;
-            this.btnLogIn.UseVisualStyleBackColor = false;
-            this.btnLogIn.Click += new System.EventHandler(this.btnLogIn_Click);
+            this.chkPass.CheckedChanged += new System.EventHandler(this.chkPass_CheckedChanged);
             // 
             // lblUser
             // 
@@ -167,6 +104,70 @@
             this.btnClose.TextColor = System.Drawing.Color.White;
             this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // btnLogIn
+            // 
+            this.btnLogIn.BackColor = System.Drawing.Color.Crimson;
+            this.btnLogIn.BackgroundColor = System.Drawing.Color.Crimson;
+            this.btnLogIn.BorderColor = System.Drawing.Color.PapayaWhip;
+            this.btnLogIn.BorderRadius = 7;
+            this.btnLogIn.BorderSize = 0;
+            this.btnLogIn.FlatAppearance.BorderSize = 0;
+            this.btnLogIn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLogIn.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Bold);
+            this.btnLogIn.ForeColor = System.Drawing.Color.White;
+            this.btnLogIn.Location = new System.Drawing.Point(55, 454);
+            this.btnLogIn.Name = "btnLogIn";
+            this.btnLogIn.Size = new System.Drawing.Size(250, 40);
+            this.btnLogIn.TabIndex = 6;
+            this.btnLogIn.Text = "Entrar";
+            this.btnLogIn.TextColor = System.Drawing.Color.White;
+            this.btnLogIn.UseVisualStyleBackColor = false;
+            this.btnLogIn.Click += new System.EventHandler(this.btnLogIn_Click);
+            // 
+            // txtPass
+            // 
+            this.txtPass.BackColor = System.Drawing.SystemColors.Window;
+            this.txtPass.BorderColor = System.Drawing.Color.Crimson;
+            this.txtPass.BorderFocusColor = System.Drawing.Color.Crimson;
+            this.txtPass.BorderRadius = 0;
+            this.txtPass.BorderSize = 2;
+            this.txtPass.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
+            this.txtPass.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.txtPass.Location = new System.Drawing.Point(55, 379);
+            this.txtPass.Margin = new System.Windows.Forms.Padding(4);
+            this.txtPass.Multiline = false;
+            this.txtPass.Name = "txtPass";
+            this.txtPass.Padding = new System.Windows.Forms.Padding(7);
+            this.txtPass.PasswordChar = true;
+            this.txtPass.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txtPass.PlaceholderText = "";
+            this.txtPass.Size = new System.Drawing.Size(250, 31);
+            this.txtPass.TabIndex = 4;
+            this.txtPass.Texts = "";
+            this.txtPass.UnderlinedStyle = false;
+            // 
+            // txtUsername
+            // 
+            this.txtUsername.BackColor = System.Drawing.SystemColors.Window;
+            this.txtUsername.BorderColor = System.Drawing.Color.Crimson;
+            this.txtUsername.BorderFocusColor = System.Drawing.Color.Crimson;
+            this.txtUsername.BorderRadius = 0;
+            this.txtUsername.BorderSize = 2;
+            this.txtUsername.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUsername.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.txtUsername.Location = new System.Drawing.Point(55, 319);
+            this.txtUsername.Margin = new System.Windows.Forms.Padding(4);
+            this.txtUsername.Multiline = false;
+            this.txtUsername.Name = "txtUsername";
+            this.txtUsername.Padding = new System.Windows.Forms.Padding(7);
+            this.txtUsername.PasswordChar = false;
+            this.txtUsername.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txtUsername.PlaceholderText = "";
+            this.txtUsername.Size = new System.Drawing.Size(250, 31);
+            this.txtUsername.TabIndex = 3;
+            this.txtUsername.Texts = "";
+            this.txtUsername.UnderlinedStyle = false;
             // 
             // LogIn
             // 

@@ -46,6 +46,9 @@
             this.btnExit = new CustomControls.RJControls.RJButton();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.btnMenu = new CustomControls.RJControls.RJButton();
+            this.lstvDispensa = new System.Windows.Forms.ListView();
+            this.idCategoria = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.categoria = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panelHome.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelMenu.SuspendLayout();
@@ -188,6 +191,7 @@
             this.btnGestCategoria.Text = "CATEGORIAS";
             this.btnGestCategoria.TextColor = System.Drawing.Color.Crimson;
             this.btnGestCategoria.UseVisualStyleBackColor = false;
+            this.btnGestCategoria.Click += new System.EventHandler(this.btnGestCategoria_Click);
             this.btnGestCategoria.MouseEnter += new System.EventHandler(this.btnGestCategoria_MouseEnter);
             this.btnGestCategoria.MouseLeave += new System.EventHandler(this.btnGestCategoria_MouseLeave);
             // 
@@ -308,12 +312,35 @@
             this.btnMenu.UseVisualStyleBackColor = false;
             this.btnMenu.Click += new System.EventHandler(this.btnMenu_Click);
             // 
+            // lstvDispensa
+            // 
+            this.lstvDispensa.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.idCategoria,
+            this.categoria});
+            this.lstvDispensa.GridLines = true;
+            this.lstvDispensa.HideSelection = false;
+            this.lstvDispensa.Location = new System.Drawing.Point(240, 119);
+            this.lstvDispensa.Name = "lstvDispensa";
+            this.lstvDispensa.Size = new System.Drawing.Size(456, 261);
+            this.lstvDispensa.TabIndex = 2;
+            this.lstvDispensa.UseCompatibleStateImageBehavior = false;
+            this.lstvDispensa.View = System.Windows.Forms.View.List;
+            // 
+            // idCategoria
+            // 
+            this.idCategoria.Text = "idCategoria";
+            // 
+            // categoria
+            // 
+            this.categoria.Text = "Categoria";
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(819, 450);
+            this.Controls.Add(this.lstvDispensa);
             this.Controls.Add(this.btnMenu);
             this.Controls.Add(this.panelMenu);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -357,5 +384,8 @@
         private CustomControls.RJControls.RJButton btnExit;
         private System.Windows.Forms.PictureBox pictureBox5;
         private CustomControls.RJControls.RJButton btnMenu;
+        private System.Windows.Forms.ListView lstvDispensa;
+        private System.Windows.Forms.ColumnHeader idCategoria;
+        private System.Windows.Forms.ColumnHeader categoria;
     }
 }
