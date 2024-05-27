@@ -40,9 +40,10 @@
             this.lstv.BackColor = System.Drawing.Color.White;
             this.lstv.GridLines = true;
             this.lstv.HideSelection = false;
+            this.lstv.LabelEdit = true;
             this.lstv.Location = new System.Drawing.Point(10, 10);
             this.lstv.Name = "lstv";
-            this.lstv.Size = new System.Drawing.Size(645, 481);
+            this.lstv.Size = new System.Drawing.Size(553, 460);
             this.lstv.TabIndex = 0;
             this.lstv.UseCompatibleStateImageBehavior = false;
             this.lstv.View = System.Windows.Forms.View.Details;
@@ -58,7 +59,7 @@
             this.rjButton1.FlatAppearance.BorderSize = 0;
             this.rjButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.rjButton1.ForeColor = System.Drawing.Color.White;
-            this.rjButton1.Location = new System.Drawing.Point(674, 10);
+            this.rjButton1.Location = new System.Drawing.Point(582, 10);
             this.rjButton1.Name = "rjButton1";
             this.rjButton1.Size = new System.Drawing.Size(150, 40);
             this.rjButton1.TabIndex = 1;
@@ -70,7 +71,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(834, 501);
+            this.ClientSize = new System.Drawing.Size(742, 480);
             this.Controls.Add(this.rjButton1);
             this.Controls.Add(this.lstv);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;

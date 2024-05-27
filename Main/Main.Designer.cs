@@ -45,7 +45,7 @@
             this.panelExit = new System.Windows.Forms.Panel();
             this.btnExit = new CustomControls.RJControls.RJButton();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.panelMain = new System.Windows.Forms.Panel();
             this.panelMenu.SuspendLayout();
             this.panelHome.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -293,25 +293,26 @@
             this.pictureBox5.TabIndex = 1;
             this.pictureBox5.TabStop = false;
             // 
-            // panel1
+            // panelMain
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.panelMain.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.panel1.Location = new System.Drawing.Point(225, 7);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(759, 526);
-            this.panel1.TabIndex = 2;
+            this.panelMain.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.panelMain.Location = new System.Drawing.Point(225, 7);
+            this.panelMain.Name = "panelMain";
+            this.panelMain.Padding = new System.Windows.Forms.Padding(7);
+            this.panelMain.Size = new System.Drawing.Size(759, 526);
+            this.panelMain.TabIndex = 2;
+            this.panelMain.Resize += new System.EventHandler(this.panelMain_Resize);
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(991, 543);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panelMain);
             this.Controls.Add(this.panelMenu);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Main";
             this.Padding = new System.Windows.Forms.Padding(7);
@@ -351,6 +352,6 @@
         private System.Windows.Forms.Panel panelExit;
         private CustomControls.RJControls.RJButton btnExit;
         private System.Windows.Forms.PictureBox pictureBox5;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panelMain;
     }
 }

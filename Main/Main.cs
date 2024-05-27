@@ -45,6 +45,14 @@ namespace Main
 
         private void btnGestDispensa_Click(object sender, EventArgs e)
         {
+            FormsDispensa dispensa = new FormsDispensa();
+
+            dispensa.TopLevel = false;
+            dispensa.AutoScroll = true;
+
+            panelMain.Controls.Add(dispensa);
+            
+            dispensa.Show();
             //CreateProdutoListView(ref lstv);
             //LoadProdutoListView(ref lstv, "*".Split());
         }
@@ -135,6 +143,15 @@ namespace Main
         private void btnHome_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void panelMain_Resize(object sender, EventArgs e)
+        {
+            foreach (Form form in panelMain.Controls)
+            {
+                form.Width = panelMain.Width - 7;
+                form.Height = panelMain.Height - 7;
+            }
         }
     }
 }

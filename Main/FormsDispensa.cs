@@ -46,7 +46,6 @@ namespace Main
             lstvProduto.Columns.AddRange(titulos);
 
         }
-        
         private void LoadProdutoListView(ref System.Windows.Forms.ListView lstvProduto, string[] fields)
         {
             Produto produto = new Produto();
@@ -69,6 +68,13 @@ namespace Main
 
         }
         
+        // Remove Function (Use DELETE with a condition on the idProduto)
+
+        // Alter Function (Use AfterLabelEdit to detect changes to the listview and enable update button)
+
+        // Add Function (Use Insert)
+
+
 
     }
 }
