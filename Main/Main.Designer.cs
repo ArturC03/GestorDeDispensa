@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
+            this.panelMenu = new System.Windows.Forms.FlowLayoutPanel();
             this.panelHome = new System.Windows.Forms.Panel();
             this.btnHome = new CustomControls.RJControls.RJButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.panelMenu = new System.Windows.Forms.FlowLayoutPanel();
             this.panelGestDispensa = new System.Windows.Forms.Panel();
             this.btnGestDispensa = new CustomControls.RJControls.RJButton();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -45,17 +45,10 @@
             this.panelExit = new System.Windows.Forms.Panel();
             this.btnExit = new CustomControls.RJControls.RJButton();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.lstv = new System.Windows.Forms.ListView();
-            this.ID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.idCategoria = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.nome = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.preco = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.quantidade = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.marca = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.btnMenu = new CustomControls.RJControls.RJButton();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panelMenu.SuspendLayout();
             this.panelHome.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.panelMenu.SuspendLayout();
             this.panelGestDispensa.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panelGestCategoria.SuspendLayout();
@@ -65,6 +58,24 @@
             this.panelExit.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.SuspendLayout();
+            // 
+            // panelMenu
+            // 
+            this.panelMenu.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.panelMenu.BackColor = System.Drawing.Color.Crimson;
+            this.panelMenu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.panelMenu.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelMenu.Controls.Add(this.panelHome);
+            this.panelMenu.Controls.Add(this.panelGestDispensa);
+            this.panelMenu.Controls.Add(this.panelGestCategoria);
+            this.panelMenu.Controls.Add(this.panelLogOut);
+            this.panelMenu.Controls.Add(this.panelExit);
+            this.panelMenu.Location = new System.Drawing.Point(7, 7);
+            this.panelMenu.Name = "panelMenu";
+            this.panelMenu.Padding = new System.Windows.Forms.Padding(0, 7, 0, 7);
+            this.panelMenu.Size = new System.Drawing.Size(213, 522);
+            this.panelMenu.TabIndex = 0;
             // 
             // panelHome
             // 
@@ -109,23 +120,6 @@
             this.pictureBox1.Size = new System.Drawing.Size(40, 41);
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
-            // 
-            // panelMenu
-            // 
-            this.panelMenu.BackColor = System.Drawing.Color.Crimson;
-            this.panelMenu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.panelMenu.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelMenu.Controls.Add(this.panelHome);
-            this.panelMenu.Controls.Add(this.panelGestDispensa);
-            this.panelMenu.Controls.Add(this.panelGestCategoria);
-            this.panelMenu.Controls.Add(this.panelLogOut);
-            this.panelMenu.Controls.Add(this.panelExit);
-            this.panelMenu.Location = new System.Drawing.Point(8, 58);
-            this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Padding = new System.Windows.Forms.Padding(0, 7, 0, 7);
-            this.panelMenu.Size = new System.Drawing.Size(211, 271);
-            this.panelMenu.TabIndex = 0;
-            this.panelMenu.Visible = false;
             // 
             // panelGestDispensa
             // 
@@ -299,88 +293,35 @@
             this.pictureBox5.TabIndex = 1;
             this.pictureBox5.TabStop = false;
             // 
-            // lstv
+            // panel1
             // 
-            this.lstv.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lstv.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.ID,
-            this.idCategoria,
-            this.nome,
-            this.preco,
-            this.quantidade,
-            this.marca});
-            this.lstv.GridLines = true;
-            this.lstv.HideSelection = false;
-            this.lstv.Location = new System.Drawing.Point(259, 58);
-            this.lstv.Name = "lstv";
-            this.lstv.Size = new System.Drawing.Size(456, 271);
-            this.lstv.TabIndex = 2;
-            this.lstv.UseCompatibleStateImageBehavior = false;
-            this.lstv.View = System.Windows.Forms.View.List;
-            // 
-            // ID
-            // 
-            this.ID.Text = "idProduto";
-            // 
-            // idCategoria
-            // 
-            this.idCategoria.Text = "Categoria";
-            // 
-            // nome
-            // 
-            this.nome.Text = "Nome";
-            // 
-            // preco
-            // 
-            this.preco.Text = "Preço";
-            // 
-            // quantidade
-            // 
-            this.quantidade.Text = "Quantidade";
-            // 
-            // marca
-            // 
-            this.marca.Text = "Marca";
-            // 
-            // btnMenu
-            // 
-            this.btnMenu.BackColor = System.Drawing.Color.Transparent;
-            this.btnMenu.BackgroundColor = System.Drawing.Color.Transparent;
-            this.btnMenu.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnMenu.BackgroundImage")));
-            this.btnMenu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnMenu.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnMenu.BorderRadius = 0;
-            this.btnMenu.BorderSize = 0;
-            this.btnMenu.FlatAppearance.BorderSize = 0;
-            this.btnMenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMenu.ForeColor = System.Drawing.Color.White;
-            this.btnMenu.Location = new System.Drawing.Point(12, 12);
-            this.btnMenu.Name = "btnMenu";
-            this.btnMenu.Size = new System.Drawing.Size(42, 40);
-            this.btnMenu.TabIndex = 1;
-            this.btnMenu.TextColor = System.Drawing.Color.White;
-            this.btnMenu.UseVisualStyleBackColor = false;
-            this.btnMenu.Click += new System.EventHandler(this.btnMenu_Click);
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.panel1.Location = new System.Drawing.Point(225, 7);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(759, 526);
+            this.panel1.TabIndex = 2;
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(922, 450);
-            this.Controls.Add(this.lstv);
-            this.Controls.Add(this.btnMenu);
+            this.ClientSize = new System.Drawing.Size(991, 543);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.panelMenu);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Main";
+            this.Padding = new System.Windows.Forms.Padding(7);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Main";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Main_FormClosing);
             this.Load += new System.EventHandler(this.Main_Load);
+            this.panelMenu.ResumeLayout(false);
             this.panelHome.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.panelMenu.ResumeLayout(false);
             this.panelGestDispensa.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panelGestCategoria.ResumeLayout(false);
@@ -394,11 +335,10 @@
         }
 
         #endregion
-
+        private System.Windows.Forms.FlowLayoutPanel panelMenu;
         private System.Windows.Forms.Panel panelHome;
         private CustomControls.RJControls.RJButton btnHome;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.FlowLayoutPanel panelMenu;
         private System.Windows.Forms.Panel panelGestDispensa;
         private CustomControls.RJControls.RJButton btnGestDispensa;
         private System.Windows.Forms.PictureBox pictureBox2;
@@ -411,13 +351,6 @@
         private System.Windows.Forms.Panel panelExit;
         private CustomControls.RJControls.RJButton btnExit;
         private System.Windows.Forms.PictureBox pictureBox5;
-        private CustomControls.RJControls.RJButton btnMenu;
-        private System.Windows.Forms.ColumnHeader ID;
-        private System.Windows.Forms.ColumnHeader idCategoria;
-        public System.Windows.Forms.ListView lstv;
-        private System.Windows.Forms.ColumnHeader nome;
-        private System.Windows.Forms.ColumnHeader preco;
-        private System.Windows.Forms.ColumnHeader quantidade;
-        private System.Windows.Forms.ColumnHeader marca;
+        private System.Windows.Forms.Panel panel1;
     }
 }
