@@ -76,7 +76,7 @@ namespace Main
             if (!ValidField(inputField, fields))
                 return -2;
             
-            DBConnect dBConnect = new DBConnect();
+            DBConnect dBConnect = new DBConnect();  
 
             return dBConnect.Count("Produto", inputField,condition, order);
             

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -45,7 +46,7 @@ namespace Main
             if ("Adicionar" != tipoVisualizacao)
             {
                 txtIdProduto.Texts = fields[0][0];
-                txtIdCategoria.Texts = fields[1][0];
+                cboIdCategoria.SelectedIndex = int.Parse(fields[1][0]);
                 txtNome.Texts = fields[2][0];
                 txtPreco.Texts = fields[3][0];
                 txtQuantidade.Texts = fields[4][0];
@@ -72,39 +73,85 @@ namespace Main
         {
             DBConnect dBConnect = new DBConnect();
             Produto produto = new Produto();
-
-            if ("Alterar" == tipoVisualizacao)
+            try
             {
-                string[] changes = new string[Produto.Fields.Length];
-                int i = 0;
-                foreach (RJTextBox control in this.Controls.OfType<RJTextBox>().OrderBy(c => c.TabIndex))
+                if ("Alterar" == tipoVisualizacao)
                 {
-                    if (Produto.Type[i] == "double")
+                    string[] changes = new string[Produto.Fields.Length];
 
-                        changes[i] = $"Produto.{Produto.Fields[i]} = {control.Texts.Replace(',', '.')}";
+                    // Carregar as mudanças para o vetor
+                    changes[0] = $"{Produto.Fields[0]}={txtIdProduto.Texts}";
+                    changes[1] = $"{Produto.Fields[1]}={cboIdCategoria.SelectedIndex}";
+                    changes[2] = $"{Produto.Fields[2]}='{txtNome.Texts}'";
+                    changes[3] = $"{Produto.Fields[3]}={txtPreco.Texts.Replace(',', '.')}";
+                    changes[4] = $"{Produto.Fields[4]}={txtQuantidade.Texts}";
+                    changes[5] = $"{Produto.Fields[5]}='{txtMarca.Texts}'";
 
-                    else
-                        if (Produto.Type[i] != "varchar")
-                    {
+                    // Chamar as mudanças
+                    produto.Update(changes, $"{dBConnect.Database}.Produto.{Produto.Fields[0]}={id}");
 
-                        changes[i] = $"Produto.{Produto.Fields[i]} = {control.Texts}";
-                    }
-                    else
-                        changes[i] = $"Produto.{Produto.Fields[i]} = \'{control.Texts}\'";
-                    i++;
+
                 }
-                produto.Update(changes, $"{dBConnect.Database}.Produto.{Produto.Fields[0]}={id}");
+                else
+                    if ("Adicionar" == tipoVisualizacao)
+                {
+                    txtIdProduto.Texts = id + string.Empty;
+                    
+                    string[] fields = new string[Produto.Fields.Length];
+                    string[] values = new string[Produto.Fields.Length];
 
-                this.formsDispensa.RefreshListView();
-                this.Close();
+                    fields[0] = $"{Produto.Fields[0]}";
+                    fields[1] = $"{Produto.Fields[1]}";
+                    fields[2] = $"{Produto.Fields[2]}";
+                    fields[3] = $"{Produto.Fields[3]}";
+                    fields[4] = $"{Produto.Fields[4]}";
+                    fields[5] = $"{Produto.Fields[5]}";
 
+                    values[0] = $"{txtIdProduto.Texts}";
+                    values[1] = $"{cboIdCategoria.SelectedIndex}";
+                    values[2] = $"'{txtNome.Texts}'";
+                    values[3] = $"{txtPreco.Texts.Replace(',', '.')}";
+                    values[4] = $"{txtQuantidade.Texts}";
+                    values[5] = $"'{txtMarca.Texts}'";
+
+                    produto.Insert(fields, values);
+
+                }
+
+                    this.formsDispensa.RefreshListView();
+                    this.Close();
             }
-            else
-                if ("Adicionar" == tipoVisualizacao)
+            catch (Exception ex)
             {
-                txtIdProduto.Texts = id + string.Empty;
-                txtIdProduto.Enabled = false;
+                MessageBox.Show($"Falha na inserção de Dados:\n{ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private string ApenasDigitos(string Text)
+        {
+            StringBuilder correto = new StringBuilder();
+
+            foreach (char chr in Text)
+                if(char.IsDigit(chr) || chr == '.' || chr == ',')
+                    correto.Append(chr);
+                
+            return correto.ToString();
+
+        }
+
+        private void txtIdProduto__TextChanged(object sender, EventArgs e)
+        {
+            txtIdProduto.Texts = ApenasDigitos(txtIdProduto.Texts);
+        }
+
+        private void txtQuantidade__TextChanged(object sender, EventArgs e)
+        {
+            txtQuantidade.Texts = ApenasDigitos(txtQuantidade.Texts);
+        }
+
+        private void txtPreco__TextChanged(object sender, EventArgs e)
+        {
+            txtPreco.Texts = ApenasDigitos(txtPreco.Texts);
         }
     }
 }

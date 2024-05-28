@@ -144,7 +144,7 @@ namespace Main
             string query = $"UPDATE {database}.{tableName} SET ";
 
             foreach(string change in changes)
-                query += change.Trim() + ", ";
+                query += tableName + "." + change.Trim() + ", ";
             query = query.TrimEnd(' ').Trim(',');
 
             if(!string.IsNullOrEmpty(condition.Trim()))

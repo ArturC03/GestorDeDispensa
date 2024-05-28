@@ -42,7 +42,6 @@
             this.lstv.BackColor = System.Drawing.Color.White;
             this.lstv.GridLines = true;
             this.lstv.HideSelection = false;
-            this.lstv.LabelEdit = true;
             this.lstv.Location = new System.Drawing.Point(10, 10);
             this.lstv.Name = "lstv";
             this.lstv.Size = new System.Drawing.Size(553, 460);
@@ -70,6 +69,7 @@
             this.btnRemover.Text = "Remover";
             this.btnRemover.TextColor = System.Drawing.Color.White;
             this.btnRemover.UseVisualStyleBackColor = false;
+            this.btnRemover.Click += new System.EventHandler(this.btnRemover_Click);
             // 
             // btnAlterar
             // 

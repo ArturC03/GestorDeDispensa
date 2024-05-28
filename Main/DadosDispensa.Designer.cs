@@ -206,6 +206,7 @@
             this.txtQuantidade.TabIndex = 4;
             this.txtQuantidade.Texts = "";
             this.txtQuantidade.UnderlinedStyle = false;
+            this.txtQuantidade._TextChanged += new System.EventHandler(this.txtQuantidade__TextChanged);
             // 
             // txtPreco
             // 
@@ -228,6 +229,7 @@
             this.txtPreco.TabIndex = 3;
             this.txtPreco.Texts = "";
             this.txtPreco.UnderlinedStyle = false;
+            this.txtPreco._TextChanged += new System.EventHandler(this.txtPreco__TextChanged);
             // 
             // txtNome
             // 
@@ -272,6 +274,7 @@
             this.txtIdProduto.TabIndex = 0;
             this.txtIdProduto.Texts = "";
             this.txtIdProduto.UnderlinedStyle = false;
+            this.txtIdProduto._TextChanged += new System.EventHandler(this.txtIdProduto__TextChanged);
             // 
             // DadosDispensa
             // 

@@ -56,20 +56,33 @@ namespace Main
             Produto produto = new Produto();
             List<string>[] values;
             values = produto.Select(fields);
+
             // Configurações da ListView
             lstvProduto.View = View.Details;
             lstvProduto.FullRowSelect = true;
             lstvProduto.MultiSelect = true;
 
+            // Inserir todos os campos da tabela Produto
             List<string> row = new List<string>();
             for (int j = 0; j < values[j].Count; j++) {
+                row = new List<string>();
+                string[] linha = null;
                 for (int i = 0; values.Length > i; i++) {
                     row.Add(values[i][j]);
                 }
-                string[] linha = row.ToArray();
+                linha = row.ToArray();
                     var listViewItem = new ListViewItem(linha);
                     lstvProduto.Items.Add(listViewItem);
            }
+            Categoria categoria = new Categoria();
+
+            // Pegar no idCategoria e Mostrar o nome da Categoria
+            for(int i = 0; i < lstvProduto.Items.Count; i++)
+            {
+                 List<string>[] nomeCategoria = categoria.Select(Categoria.Fields[1].Split(), $"{Categoria.Fields[0]}={lstvProduto.Items[i].SubItems[1].Text}");
+                lstvProduto.Items[i].SubItems[1].Text = nomeCategoria[0][0];
+            }
+
 
         }
 
@@ -84,33 +97,7 @@ namespace Main
             DadosDispensa dados = new DadosDispensa(this,"Alterar", lstv.SelectedIndices[0]);
             dados.Show();
 
-
-            //Produto produto = new Produto();
-            //DBConnect dBConnect = new DBConnect();
-            
-            //string[][] listViewData = new string[lstv.Items.Count][];
-            
-            //for (int i = 0; i < lstv.Items.Count; i++)
-            //{
-            //    ListViewItem item = lstv.Items[i];
-            //    listViewData[i] = new string[item.SubItems.Count];
-            //    for (int j = 0; j < item.SubItems.Count; j++)
-            //    {
-            //        listViewData[i][j] = item.SubItems[j].Text;
-            //    }
-            //}
-       
-            //for(int i = 0; i<listViewData.Length; i++)
-            //    for (int j = 0; j < listViewData[i].Length; j++)
-            //    {
-            //        string field= Produto.Fields[j];
-            //        if ("varchar" == Produto.Type[j])
-            //            produto.Update($"{dBConnect.Database}.Produto.{Produto.Fields[j]} = '{listViewData[i][j]}'", $"{dBConnect.Database}.Produto.{Produto.Fields[0]}={listViewData[i][0]}");
-            //        else
-            //            produto.Update($"{dBConnect.Database}.Produto.{Produto.Fields[j]} = {listViewData[i][j]}", $"{dBConnect.Database}.Produto.{Produto.Fields[0]}={listViewData[i][0]}");
-            //    }
-
-            //btnAlterar.Enabled = false;
+            btnAlterar.Enabled = false;
         }
 
         private void lstv_SelectedIndexChanged(object sender, EventArgs e)
@@ -130,10 +117,22 @@ namespace Main
                id = int.Parse(produto.Max($"{Produto.Fields[0]}")) + 1;
                        else
                 id = 0;
-             MessageBox.Show($"{id}");
 
             DadosDispensa dados = new DadosDispensa(this,"Adicionar", id);
             dados.Show();
+
+        }
+
+        private void btnRemover_Click(object sender, EventArgs e)
+        {
+            Produto produto = new Produto();
+
+            while(lstv.SelectedIndices.Count > 0)
+            {
+                produto.Delete($"idProduto={lstv.SelectedItems[0].SubItems[0].Text}");
+                lstv.Items.RemoveAt(lstv.SelectedIndices[0]);
+            }
+            LoadProdutoListView(ref lstv, "*".Split()); 
 
         }
 
