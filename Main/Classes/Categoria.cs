@@ -29,12 +29,20 @@ namespace Main
             dBConnect.Insert("Categoria", inputFields, values);
             return true;
         }
-
-        public override bool Update(string[] changes)
+        public override bool Update(string change, string condition = null)
         {
             DBConnect dBConnect = new DBConnect();
 
-            dBConnect.Update("Categoria", changes);
+            dBConnect.Update("Categoria", change, condition);
+            return true;
+        }
+
+
+        public override bool Update(string[] changes, string condition = null)
+        {
+            DBConnect dBConnect = new DBConnect();
+
+            dBConnect.Update("Categoria", changes, condition);
             return true;
         }
 

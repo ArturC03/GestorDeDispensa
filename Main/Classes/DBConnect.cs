@@ -114,14 +114,37 @@ namespace Main
                 this.CloseConnection();
             }
         }
+        public void Update(string tableName, string change,string condition = null)
+        {
+            string query = $"UPDATE {database}.{tableName} SET {change}";
 
+            if(!string.IsNullOrEmpty(condition.Trim()))
+                query += $" WHERE {condition.Trim()}";
+
+            //Open connection
+            if (this.OpenConnection() == true)
+            {
+                //create mysql command
+                MySqlCommand cmd = new MySqlCommand();
+                //Assign the query using CommandText
+                cmd.CommandText = query;
+                //Assign the connection using Connection
+                cmd.Connection = connection;
+
+                //Execute query
+                cmd.ExecuteNonQuery();
+
+                //close connection
+                this.CloseConnection();
+            }
+        }
         public void Update(string tableName, string[] changes,string condition = null)
         {
             string query = $"UPDATE {database}.{tableName} SET ";
 
             foreach(string change in changes)
                 query += change.Trim() + ", ";
-            query = query.TrimEnd(',',' ');
+            query = query.TrimEnd(' ').Trim(',');
 
             if(!string.IsNullOrEmpty(condition.Trim()))
                 query += $" WHERE {condition.Trim()}";

@@ -10,14 +10,19 @@ using System.Threading.Tasks;
 
 namespace Main
 {
-    internal class Produto : Tabela
+    internal sealed class Produto : Tabela
     {
         private static string[] fields = {"idProduto","idCategoria","nome","preco","quantidade","marca"};
-       
+        private static string[] type = { "int", "int", "varchar", "double", "int", "varchar" };
         public static string[] Fields
         {
             get => fields;
         }
+        public static string[] Type
+        {
+            get => type;
+        }
+
 
         public override bool Insert(string[] inputFields, string[] values)
         {
@@ -29,12 +34,19 @@ namespace Main
             dBConnect.Insert("Produto", inputFields, values);
             return true;
         }
-
-        public override bool Update(string[] changes)
+        public override bool Update(string change, string condition = null)
         {
             DBConnect dBConnect = new DBConnect();
 
-            dBConnect.Update("Produto", changes);
+            dBConnect.Update("Produto", change, condition);
+            return true;
+        }
+
+        public override bool Update(string[] changes, string condition = null)
+        {
+            DBConnect dBConnect = new DBConnect();
+
+            dBConnect.Update("Produto", changes, condition);
             return true;
         }
         

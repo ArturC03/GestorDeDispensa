@@ -34,7 +34,8 @@ namespace Main
         }
 
         public abstract bool Insert(string[] inputFields, string[] values);
-        public abstract bool Update(string[] changes);
+        public abstract bool Update(string[] changes, string condition = null);
+        public abstract bool Update(string change, string condition = null);
         public abstract bool Delete(string condition = null);
         public abstract List<string>[] Select(string[] inputFields, string condition = null);
         public abstract int Count(string inputField);

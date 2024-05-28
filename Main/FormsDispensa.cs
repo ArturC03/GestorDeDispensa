@@ -2,11 +2,15 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics.Contracts;
+using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Markup;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Main
 {
@@ -19,7 +23,8 @@ namespace Main
 
         private void FormsDispensa_Load(object sender, EventArgs e)
         {
-
+            CreateProdutoListView(ref lstv);
+            LoadProdutoListView(ref lstv, "*".Split());
         }
 
         private void CreateProdutoListView(ref System.Windows.Forms.ListView lstvProduto)
@@ -67,7 +72,57 @@ namespace Main
            }
 
         }
-        
+
+        public void RefreshListView()
+        {
+            CreateProdutoListView(ref lstv);
+            LoadProdutoListView(ref lstv, "*".Split());
+        }
+  
+        private void btnAlterar_Click(object sender, EventArgs e)
+        {
+            DadosDispensa dados = new DadosDispensa(this,"Alterar", lstv.SelectedIndices[0]);
+            dados.Show();
+
+
+            //Produto produto = new Produto();
+            //DBConnect dBConnect = new DBConnect();
+            
+            //string[][] listViewData = new string[lstv.Items.Count][];
+            
+            //for (int i = 0; i < lstv.Items.Count; i++)
+            //{
+            //    ListViewItem item = lstv.Items[i];
+            //    listViewData[i] = new string[item.SubItems.Count];
+            //    for (int j = 0; j < item.SubItems.Count; j++)
+            //    {
+            //        listViewData[i][j] = item.SubItems[j].Text;
+            //    }
+            //}
+       
+            //for(int i = 0; i<listViewData.Length; i++)
+            //    for (int j = 0; j < listViewData[i].Length; j++)
+            //    {
+            //        string field= Produto.Fields[j];
+            //        if ("varchar" == Produto.Type[j])
+            //            produto.Update($"{dBConnect.Database}.Produto.{Produto.Fields[j]} = '{listViewData[i][j]}'", $"{dBConnect.Database}.Produto.{Produto.Fields[0]}={listViewData[i][0]}");
+            //        else
+            //            produto.Update($"{dBConnect.Database}.Produto.{Produto.Fields[j]} = {listViewData[i][j]}", $"{dBConnect.Database}.Produto.{Produto.Fields[0]}={listViewData[i][0]}");
+            //    }
+
+            //btnAlterar.Enabled = false;
+        }
+
+        private void lstv_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(lstv.SelectedItems.Count > 0) 
+                btnAlterar.Enabled = true;
+            else
+                btnAlterar.Enabled = false;
+        }
+
+
+
         // Remove Function (Use DELETE with a condition on the idProduto)
 
         // Alter Function (Use AfterLabelEdit to detect changes to the listview and enable update button)
