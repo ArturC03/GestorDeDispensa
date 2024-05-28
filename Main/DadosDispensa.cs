@@ -23,19 +23,34 @@ namespace Main
             this.id = id;
             formsDispensa = forms;
         }
+
+        private void LoadCboIdCategoria()
+        {
+            Categoria categoria = new Categoria();
+            cboIdCategoria.Items.Clear();
+            List<string>[] categorias = categoria.Select(Categoria.Fields[1].Split(), null, Categoria.Fields[0]);
+            for(int i = 0; i < categorias[0].Count; i++) {
+                cboIdCategoria.Items.Add(categorias[0][i]);
+            }            
+        }
+
         private void DadosDispensa_Load(object sender, EventArgs e)
         {
             DBConnect dBConnect = new DBConnect();
             Produto produto = new Produto();
 
-            List<string>[] fields = produto.Select("*".Split(), $"{dBConnect.Database}.Produto.{Produto.Fields[0]} = {id}");
+            LoadCboIdCategoria();
 
-            txtIdProduto.Texts = fields[0][0];
-            txtIdCategoria.Texts = fields[1][0];
-            txtNome.Texts = fields[2][0];
-            txtPreco.Texts = fields[3][0];
-            txtQuantidade.Texts = fields[4][0];
-            txtMarca.Texts = fields[5][0];
+            List<string>[] fields = produto.Select("*".Split(), $"{dBConnect.Database}.Produto.{Produto.Fields[0]} = {id}");
+            if ("Adicionar" != tipoVisualizacao)
+            {
+                txtIdProduto.Texts = fields[0][0];
+                txtIdCategoria.Texts = fields[1][0];
+                txtNome.Texts = fields[2][0];
+                txtPreco.Texts = fields[3][0];
+                txtQuantidade.Texts = fields[4][0];
+                txtMarca.Texts = fields[5][0];
+            }
 
             if("Alterar" != tipoVisualizacao && "Adicionar" != tipoVisualizacao)
             {
@@ -65,23 +80,30 @@ namespace Main
                 foreach (RJTextBox control in this.Controls.OfType<RJTextBox>().OrderBy(c => c.TabIndex))
                 {
                     if (Produto.Type[i] == "double")
-                     
-                        changes[i] = $"Produto.{Produto.Fields[i]} = {control.Texts.Replace(',','.')}";
+
+                        changes[i] = $"Produto.{Produto.Fields[i]} = {control.Texts.Replace(',', '.')}";
 
                     else
                         if (Produto.Type[i] != "varchar")
                     {
 
-                       changes[i] = $"Produto.{Produto.Fields[i]} = {control.Texts}";
-                                       }
+                        changes[i] = $"Produto.{Produto.Fields[i]} = {control.Texts}";
+                    }
                     else
                         changes[i] = $"Produto.{Produto.Fields[i]} = \'{control.Texts}\'";
-                    i++;                 }
+                    i++;
+                }
                 produto.Update(changes, $"{dBConnect.Database}.Produto.{Produto.Fields[0]}={id}");
 
                 this.formsDispensa.RefreshListView();
                 this.Close();
 
+            }
+            else
+                if ("Adicionar" == tipoVisualizacao)
+            {
+                txtIdProduto.Texts = id + string.Empty;
+                txtIdProduto.Enabled = false;
             }
         }
     }

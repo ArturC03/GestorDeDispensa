@@ -58,7 +58,7 @@ namespace Main
 
         }
 
-        public override List<string>[] Select(string[] inputFields, string condition = null)
+        public override List<string>[] Select(string[] inputFields, string condition = null, string order = null)
         {
             if (inputFields[0] == "*")
                 inputFields = fields;
@@ -68,18 +68,29 @@ namespace Main
             
             DBConnect dBConnect = new DBConnect();
 
-            return dBConnect.Select("Produto", inputFields, condition);
+            return dBConnect.Select("Produto", inputFields, condition, order);
         }
 
-        public override int Count(string inputField)
+        public override int Count(string inputField, string condition = null, string order = null)
         {
             if (!ValidField(inputField, fields))
                 return -2;
             
             DBConnect dBConnect = new DBConnect();
 
-            return dBConnect.Count("Produto", inputField);
+            return dBConnect.Count("Produto", inputField,condition, order);
             
         }
+
+        public override string Max(string inputField, string condition = null, string order = null)
+        {
+            if (!ValidField(inputField, fields))
+                return null;
+
+            DBConnect dBConnect = new DBConnect();
+
+            return dBConnect.Max("Produto", inputField.Trim(), condition);
+        }
+
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Odbc;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
@@ -53,7 +54,7 @@ namespace Main
             return true;
 
         }
-        public override List<string>[] Select(string[] inputFields, string condition = null)
+        public override List<string>[] Select(string[] inputFields, string condition = null, string order = null)
         {
             if (inputFields[0] == "*")
                 inputFields = fields;
@@ -63,19 +64,29 @@ namespace Main
             
             DBConnect dBConnect = new DBConnect();
             
-            return dBConnect.Select("Categoria", inputFields, condition);
+            return dBConnect.Select("Categoria", inputFields, condition, order);
         }
 
-        public override int Count(string inputField)
+        public override int Count(string inputField, string condition = null, string order = null)
         {
             if (!ValidField(inputField, fields))
                 return -2;
                
             DBConnect dBConnect = new DBConnect();
 
-            return dBConnect.Count("Categoria", inputField);
-            
+            return dBConnect.Count("Categoria", inputField,condition, order);
         }
+
+        public override string Max(string inputField, string condition = null, string order = null)
+        {
+            if (!ValidField(inputField, fields))
+                return null;
+
+            DBConnect dBConnect = new DBConnect();
+
+            return dBConnect.Max("Categoria", inputField.Trim(), condition);
+        }
+
 
     }
 }

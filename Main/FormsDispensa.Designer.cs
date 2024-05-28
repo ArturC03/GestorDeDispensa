@@ -112,6 +112,7 @@
             this.btnAdicionar.Text = "Adicionar";
             this.btnAdicionar.TextColor = System.Drawing.Color.White;
             this.btnAdicionar.UseVisualStyleBackColor = false;
+            this.btnAdicionar.Click += new System.EventHandler(this.btnAdicionar_Click);
             // 
             // FormsDispensa
             // 

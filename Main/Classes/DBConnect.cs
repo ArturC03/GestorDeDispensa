@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -42,10 +43,10 @@ namespace Main
 
         private void Initialize()
         {
-            server = "localhost";
+            server = "db4free.net";
             database = "dispensa";
-            uid = "root";
-            password = "QuimBombeiro_M+";
+            uid = "arturcruz";
+            password = "Riomaior3";
             string connectionString;
             connectionString = "SERVER=" + server + ";" + "DATABASE=" +
             database + ";" + "UID=" + uid + ";" + "PASSWORD=" + password + ";";
@@ -182,7 +183,7 @@ namespace Main
             }
         }
 
-        public List<string>[] Select(string tableName, string[] tableFields,string condition = null)
+        public List<string>[] Select(string tableName, string[] tableFields,string condition = null, string order = null)
         {
             string query = $"SELECT ";
             if (tableFields[0] != "*")
@@ -194,7 +195,14 @@ namespace Main
             else
                 query += tableFields[0];
 
+
             query += $" FROM {database}.{tableName}";
+
+            if (!string.IsNullOrEmpty(condition))
+                query += $" WHERE {condition.Trim()}";
+
+            if (!string.IsNullOrEmpty(order))
+                query += $" ORDER BY {order.Trim()}";
 
             //Create a list to store the result
             List<string>[] list = new List<string>[tableFields.Length];
@@ -230,10 +238,18 @@ namespace Main
             }
         }
 
-        public int Count(string tableName, string field)
+        public int Count(string tableName, string field, string condition, string order)
         {
             string query = $"SELECT Count({database}.{tableName}.{field}) FROM {database}.{tableName}";
             int Count = -1;
+
+            if (!string.IsNullOrEmpty(condition))
+                query += $" WHERE {condition.Trim()}";
+
+
+            if (!string.IsNullOrEmpty(order))
+                query += $" ORDER BY {order.Trim()}";
+
 
             //Open Connection
             if (this.OpenConnection() == true)
@@ -254,6 +270,41 @@ namespace Main
                 return Count;
             }
         }
+
+        public string Max(string tableName, string field, string condition = null, string order = null)
+        {
+            string query = $"SELECT MAX({database}.{tableName}.{field}) FROM {database}.{tableName}";
+
+            if (!string.IsNullOrEmpty(condition))
+                query += $" WHERE {condition.Trim()}";
+
+            if (!string.IsNullOrEmpty(order))
+                query += $" ORDER BY {order.Trim()}";
+
+            dynamic max = -1;
+
+            //Open Connection
+            if (this.OpenConnection() == true)
+            {
+                //Create Mysql Command
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+
+                //ExecuteScalar will return one value
+                
+                max = cmd.ExecuteScalar() + "";
+
+                //close Connection
+                this.CloseConnection();
+
+                return max;
+            }
+            else
+            {
+                return max;
+            }
+        }
+
+
         public void Backup()
         {
             try

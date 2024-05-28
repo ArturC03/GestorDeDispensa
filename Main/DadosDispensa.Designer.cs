@@ -34,12 +34,12 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.cboIdCategoria = new CustomControls.RJControls.RJComboBox();
             this.btnOk = new CustomControls.RJControls.RJButton();
             this.btnCancel = new CustomControls.RJControls.RJButton();
             this.txtMarca = new CustomControls.RJControls.RJTextBox();
             this.txtQuantidade = new CustomControls.RJControls.RJTextBox();
             this.txtPreco = new CustomControls.RJControls.RJTextBox();
-            this.txtIdCategoria = new CustomControls.RJControls.RJTextBox();
             this.txtNome = new CustomControls.RJControls.RJTextBox();
             this.txtIdProduto = new CustomControls.RJControls.RJTextBox();
             this.SuspendLayout();
@@ -68,11 +68,11 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(10, 85);
+            this.label1.Location = new System.Drawing.Point(10, 81);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(86, 16);
+            this.label1.Size = new System.Drawing.Size(73, 16);
             this.label1.TabIndex = 17;
-            this.label1.Text = "idCategoria";
+            this.label1.Text = "Categoria";
             // 
             // label2
             // 
@@ -103,6 +103,25 @@
             this.label5.Size = new System.Drawing.Size(50, 16);
             this.label5.TabIndex = 23;
             this.label5.Text = "Marca";
+            // 
+            // cboIdCategoria
+            // 
+            this.cboIdCategoria.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.cboIdCategoria.BorderColor = System.Drawing.Color.Crimson;
+            this.cboIdCategoria.BorderSize = 2;
+            this.cboIdCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
+            this.cboIdCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.cboIdCategoria.ForeColor = System.Drawing.Color.DimGray;
+            this.cboIdCategoria.IconColor = System.Drawing.Color.Crimson;
+            this.cboIdCategoria.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(228)))), ((int)(((byte)(245)))));
+            this.cboIdCategoria.ListTextColor = System.Drawing.Color.DimGray;
+            this.cboIdCategoria.Location = new System.Drawing.Point(13, 100);
+            this.cboIdCategoria.MinimumSize = new System.Drawing.Size(200, 30);
+            this.cboIdCategoria.Name = "cboIdCategoria";
+            this.cboIdCategoria.Padding = new System.Windows.Forms.Padding(2);
+            this.cboIdCategoria.Size = new System.Drawing.Size(250, 30);
+            this.cboIdCategoria.TabIndex = 26;
+            this.cboIdCategoria.Texts = "";
             // 
             // btnOk
             // 
@@ -210,28 +229,6 @@
             this.txtPreco.Texts = "";
             this.txtPreco.UnderlinedStyle = false;
             // 
-            // txtIdCategoria
-            // 
-            this.txtIdCategoria.BackColor = System.Drawing.SystemColors.Window;
-            this.txtIdCategoria.BorderColor = System.Drawing.Color.Crimson;
-            this.txtIdCategoria.BorderFocusColor = System.Drawing.Color.Crimson;
-            this.txtIdCategoria.BorderRadius = 0;
-            this.txtIdCategoria.BorderSize = 2;
-            this.txtIdCategoria.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIdCategoria.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.txtIdCategoria.Location = new System.Drawing.Point(13, 102);
-            this.txtIdCategoria.Margin = new System.Windows.Forms.Padding(4);
-            this.txtIdCategoria.Multiline = false;
-            this.txtIdCategoria.Name = "txtIdCategoria";
-            this.txtIdCategoria.Padding = new System.Windows.Forms.Padding(7);
-            this.txtIdCategoria.PasswordChar = false;
-            this.txtIdCategoria.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.txtIdCategoria.PlaceholderText = "";
-            this.txtIdCategoria.Size = new System.Drawing.Size(250, 31);
-            this.txtIdCategoria.TabIndex = 1;
-            this.txtIdCategoria.Texts = "";
-            this.txtIdCategoria.UnderlinedStyle = false;
-            // 
             // txtNome
             // 
             this.txtNome.BackColor = System.Drawing.SystemColors.Window;
@@ -281,6 +278,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(277, 450);
+            this.Controls.Add(this.cboIdCategoria);
             this.Controls.Add(this.btnOk);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.label5);
@@ -290,7 +288,6 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtPreco);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.txtIdCategoria);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtNome);
             this.Controls.Add(this.lblUser);
@@ -311,7 +308,6 @@
         private System.Windows.Forms.Label label3;
         private CustomControls.RJControls.RJTextBox txtNome;
         private System.Windows.Forms.Label label1;
-        private CustomControls.RJControls.RJTextBox txtIdCategoria;
         private System.Windows.Forms.Label label2;
         private CustomControls.RJControls.RJTextBox txtPreco;
         private System.Windows.Forms.Label label4;
@@ -320,5 +316,6 @@
         private CustomControls.RJControls.RJTextBox txtMarca;
         private CustomControls.RJControls.RJButton btnCancel;
         private CustomControls.RJControls.RJButton btnOk;
+        private CustomControls.RJControls.RJComboBox cboIdCategoria;
     }
 }

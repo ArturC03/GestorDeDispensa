@@ -121,6 +121,22 @@ namespace Main
                 btnAlterar.Enabled = false;
         }
 
+        private void btnAdicionar_Click(object sender, EventArgs e)
+        {
+            Produto produto = new Produto();
+            int id;
+           
+            if (0 < lstv.Items.Count)
+               id = int.Parse(produto.Max($"{Produto.Fields[0]}")) + 1;
+                       else
+                id = 0;
+             MessageBox.Show($"{id}");
+
+            DadosDispensa dados = new DadosDispensa(this,"Adicionar", id);
+            dados.Show();
+
+        }
+
 
 
         // Remove Function (Use DELETE with a condition on the idProduto)

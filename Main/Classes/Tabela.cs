@@ -37,8 +37,9 @@ namespace Main
         public abstract bool Update(string[] changes, string condition = null);
         public abstract bool Update(string change, string condition = null);
         public abstract bool Delete(string condition = null);
-        public abstract List<string>[] Select(string[] inputFields, string condition = null);
-        public abstract int Count(string inputField);
+        public abstract List<string>[] Select(string[] inputFields, string condition = null, string order = null);
+        public abstract int Count(string inputField, string condition = null, string order = null);
+        public abstract string Max(string inputField, string condition = null, string order = null);
 
     }
 }
