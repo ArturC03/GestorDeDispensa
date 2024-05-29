@@ -27,7 +27,7 @@ namespace Main
 
         private void LoadCboIdCategoria()
         {
-            Categoria categoria = new Categoria();
+            Tabela  categoria = new Categoria();
             cboIdCategoria.Items.Clear();
             List<string>[] categorias = categoria.Select(Categoria.Fields[1].Split(), null, Categoria.Fields[0]);
             for(int i = 0; i < categorias[0].Count; i++) {
@@ -39,7 +39,7 @@ namespace Main
         private void DadosDispensa_Load(object sender, EventArgs e)
         {
             DBConnect dBConnect = new DBConnect();
-            Produto produto = new Produto();
+            Tabela produto = new Produto();
 
             LoadCboIdCategoria();
 
@@ -73,7 +73,7 @@ namespace Main
         private void btnOk_Click(object sender, EventArgs e)
         {
             DBConnect dBConnect = new DBConnect();
-            Produto produto = new Produto();
+            Tabela produto = new Produto();
             try
             {
                 if ("Alterar" == tipoVisualizacao)

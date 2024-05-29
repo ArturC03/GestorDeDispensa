@@ -163,11 +163,11 @@ namespace Main
 
         private void btnRemover_Click(object sender, EventArgs e)
         {
-            Produto produto = new Produto();
+            Tabela produto = new Produto();
 
             while(lstv.SelectedIndices.Count > 0)
             {
-                produto.Delete($"idProduto={lstv.SelectedItems[0].SubItems[0].Text}");
+                produto.Delete($"{Produto.Fields[0]}={lstv.SelectedItems[0].SubItems[0].Text}");
                 lstv.Items.RemoveAt(lstv.SelectedIndices[0]);
             }
             LoadProdutoListView(ref lstv, "*".Split());

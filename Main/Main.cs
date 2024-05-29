@@ -22,11 +22,6 @@ namespace Main
             this.logIn = logIn;
         }
 
-        private void Main_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            Application.Exit();
-        }
-
         private void btnGestDispensa_Click(object sender, EventArgs e)
         {
             FormsDispensa dispensa = new FormsDispensa();
@@ -36,12 +31,45 @@ namespace Main
 
             panelMain.Controls.Clear();
             panelMain.Controls.Add(dispensa);
-            
+
             dispensa.Show();
-            //CreateProdutoListView(ref lstv);
-            //LoadProdutoListView(ref lstv, "*".Split());
+        }
+        private void btnGestCategoria_Click(object sender, EventArgs e)
+        {
+            FormsCategoria categoria = new FormsCategoria();
+
+            categoria.TopLevel = false;
+            categoria.AutoScroll = true;
+
+            panelMain.Controls.Clear();
+            panelMain.Controls.Add(categoria);
+            
+            categoria.Show();
+            
+        }
+        private void btnLogOut_Click(object sender, EventArgs e)
+        {
+            logIn.Show();
+            this.Hide();
+        }
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
 
+        
+        
+
+        private void panelMain_Resize(object sender, EventArgs e)
+        {
+            foreach (Form form in panelMain.Controls)
+            {
+                form.Width = panelMain.Width - 7;
+                form.Height = panelMain.Height - 7;
+            }
+        }
+
+        
         private void btnGestDispensa_MouseEnter(object sender, EventArgs e)
         {
             btnGestDispensa.BackColor = Color.Crimson;
@@ -95,48 +123,6 @@ namespace Main
             btnExit.BackColor = Color.White;
 
         }
-
-        private void btnExit_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
-        private void btnLogOut_Click(object sender, EventArgs e)
-        {
-            logIn.Show();
-            this.Hide();
-        }
-
-        private void Main_Load(object sender, EventArgs e)
-        {
-            //CreateProdutoListView(ref lstv);
-            
-            //LoadProdutoListView(ref lstv, "*".Split());
-        }
-
-        private void btnGestCategoria_Click(object sender, EventArgs e)
-        {
-            FormsCategoria categoria = new FormsCategoria();
-
-            categoria.TopLevel = false;
-            categoria.AutoScroll = true;
-
-            panelMain.Controls.Clear();
-            panelMain.Controls.Add(categoria);
-            
-            categoria.Show();
-            
-        }
-
-        private void panelMain_Resize(object sender, EventArgs e)
-        {
-            foreach (Form form in panelMain.Controls)
-            {
-                form.Width = panelMain.Width - 7;
-                form.Height = panelMain.Height - 7;
-            }
-        }
-
         private void btnHistorico_MouseEnter(object sender, EventArgs e)
         {
             btnHistorico.BackColor = Color.Crimson;
@@ -150,6 +136,13 @@ namespace Main
             btnHistorico.BackColor = Color.White;
 
         }
+        private void Main_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
+        private void Main_Load(object sender, EventArgs e)
+        {
+        }   
     }
 }
 

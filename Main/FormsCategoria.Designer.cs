@@ -54,6 +54,7 @@
             this.btnRemover.Text = "Remover";
             this.btnRemover.TextColor = System.Drawing.Color.White;
             this.btnRemover.UseVisualStyleBackColor = false;
+            this.btnRemover.Click += new System.EventHandler(this.btnRemover_Click);
             // 
             // btnAlterar
             // 
@@ -75,6 +76,7 @@
             this.btnAlterar.Text = "Alterar";
             this.btnAlterar.TextColor = System.Drawing.Color.White;
             this.btnAlterar.UseVisualStyleBackColor = false;
+            this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
             // 
             // btnAdicionar
             // 

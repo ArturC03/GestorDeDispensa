@@ -237,6 +237,7 @@
             this.btnLogOut.Text = "LOG OUT";
             this.btnLogOut.TextColor = System.Drawing.Color.Crimson;
             this.btnLogOut.UseVisualStyleBackColor = false;
+            this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
             this.btnLogOut.MouseEnter += new System.EventHandler(this.btnLogOut_MouseEnter);
             this.btnLogOut.MouseLeave += new System.EventHandler(this.btnLogOut_MouseLeave);
             // 
@@ -280,6 +281,7 @@
             this.btnExit.Text = "SAIR";
             this.btnExit.TextColor = System.Drawing.Color.Crimson;
             this.btnExit.UseVisualStyleBackColor = false;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             this.btnExit.MouseEnter += new System.EventHandler(this.btnExit_MouseEnter);
             this.btnExit.MouseLeave += new System.EventHandler(this.btnExit_MouseLeave);
             // 

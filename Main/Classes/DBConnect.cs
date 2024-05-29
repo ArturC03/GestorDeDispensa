@@ -100,7 +100,7 @@ namespace Main
 
         public void Insert(string tableName, string[] fields, string[] values)
         {
-            string query = $"INSERT INTO {database}.{tableName.Trim()} ({string.Join(",", fields)}) VALUES({string.Join(",", values)})";
+            string query = $"INSERT INTO {database}.{tableName.Trim()} ({string.Join(", ", fields)}) VALUES({string.Join(", ", values)})";
 
             //open connection
             if (this.OpenConnection() == true)

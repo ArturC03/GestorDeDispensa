@@ -17,10 +17,15 @@ namespace Main
             InitializeComponent();
         }
 
-        private void FormsCategoria_Load(object sender, EventArgs e)
+        public void RefreshListView()
         {
             CreateCategoriaListView(ref lstv);
             LoadCategoriaListView(ref lstv, "*".Split());
+        }
+
+        private void FormsCategoria_Load(object sender, EventArgs e)
+        {
+            RefreshListView();
         }
         
         private void CreateCategoriaListView(ref System.Windows.Forms.ListView lstvCategoria)
@@ -55,7 +60,7 @@ namespace Main
         private void LoadCategoriaListView(ref System.Windows.Forms.ListView lstvCategoria, string[] fields)
         {
             lstvCategoria.Items.Clear();
-            Categoria categoria = new Categoria();
+            Tabela categoria = new Categoria();
             List<string>[] values;
             values = categoria.Select("*".Split());
 
@@ -123,7 +128,7 @@ namespace Main
 
         private void btnAdicionar_Click(object sender, EventArgs e)
         {
-            Categoria categoria = new Categoria();
+            Tabela categoria = new Categoria();
             int id;
            
             if (0 < lstv.Items.Count)
@@ -131,8 +136,30 @@ namespace Main
             else
                id = 0;
 
-            //DadosDispensa dados = new DadosDispensa(this,"Adicionar", id);
-            //dados.Show();
+            DadosCategoria dados = new DadosCategoria(this,"Adicionar", id);
+            dados.Show();
+
+        }
+
+        private void btnAlterar_Click(object sender, EventArgs e)
+        {
+            DadosCategoria dados = new DadosCategoria(this,"Alterar", lstv.SelectedIndices[0]);
+            dados.Show();
+
+            btnAlterar.Enabled = false;
+
+        }
+
+        private void btnRemover_Click(object sender, EventArgs e)
+        {
+            Tabela categoria = new Categoria();
+
+            while(lstv.SelectedIndices.Count > 0)
+            {
+                categoria.Delete($"{Categoria.Fields[0]}={lstv.SelectedItems[0].SubItems[0].Text}");
+                lstv.Items.RemoveAt(lstv.SelectedIndices[0]);
+            }
+            LoadCategoriaListView(ref lstv, "*".Split());
 
 
         }

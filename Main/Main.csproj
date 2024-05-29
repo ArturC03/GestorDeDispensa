@@ -53,6 +53,12 @@
     <Compile Include="Classes\Categoria.cs" />
     <Compile Include="Classes\DBConnect.cs" />
     <Compile Include="Classes\Tabela.cs" />
+    <Compile Include="DadosCategoria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DadosCategoria.Designer.cs">
+      <DependentUpon>DadosCategoria.cs</DependentUpon>
+    </Compile>
     <Compile Include="DadosDispensa.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -116,6 +122,9 @@
     <Compile Include="RJControls\RJToggleButton.cs">
       <SubType>Component</SubType>
     </Compile>
+    <EmbeddedResource Include="DadosCategoria.resx">
+      <DependentUpon>DadosCategoria.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DadosDispensa.resx">
       <DependentUpon>DadosDispensa.cs</DependentUpon>
     </EmbeddedResource>
