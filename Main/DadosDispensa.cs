@@ -32,7 +32,8 @@ namespace Main
             List<string>[] categorias = categoria.Select(Categoria.Fields[1].Split(), null, Categoria.Fields[0]);
             for(int i = 0; i < categorias[0].Count; i++) {
                 cboIdCategoria.Items.Add(categorias[0][i]);
-            }            
+            }
+            txtIdProduto.Texts = id + string.Empty;
         }
 
         private void DadosDispensa_Load(object sender, EventArgs e)
@@ -88,7 +89,7 @@ namespace Main
                     changes[5] = $"{Produto.Fields[5]}='{txtMarca.Texts}'";
 
                     // Chamar as mudanças
-                    produto.Update(changes, $"{dBConnect.Database}.Produto.{Produto.Fields[0]}={id}");
+                    produto.Update(changes, $"{dBConnect.Database}.Produto.{Produto.Fields[0]}={txtIdProduto.Texts}");
 
 
                 }

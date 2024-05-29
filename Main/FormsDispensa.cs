@@ -53,6 +53,7 @@ namespace Main
         }
         private void LoadProdutoListView(ref System.Windows.Forms.ListView lstvProduto, string[] fields)
         {
+            lstvProduto.Items.Clear();
             Produto produto = new Produto();
             List<string>[] values;
             values = produto.Select(fields);
@@ -132,7 +133,7 @@ namespace Main
                 produto.Delete($"idProduto={lstv.SelectedItems[0].SubItems[0].Text}");
                 lstv.Items.RemoveAt(lstv.SelectedIndices[0]);
             }
-            LoadProdutoListView(ref lstv, "*".Split()); 
+            LoadProdutoListView(ref lstv, "*".Split());
 
         }
 

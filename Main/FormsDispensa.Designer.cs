@@ -28,10 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lstv = new System.Windows.Forms.ListView();
             this.btnRemover = new CustomControls.RJControls.RJButton();
             this.btnAlterar = new CustomControls.RJControls.RJButton();
             this.btnAdicionar = new CustomControls.RJControls.RJButton();
+            this.tltDispensa = new System.Windows.Forms.ToolTip(this.components);
             this.SuspendLayout();
             // 
             // lstv
@@ -46,6 +48,7 @@
             this.lstv.Name = "lstv";
             this.lstv.Size = new System.Drawing.Size(553, 460);
             this.lstv.TabIndex = 0;
+            this.tltDispensa.SetToolTip(this.lstv, "Clique num item para selecioná-lo");
             this.lstv.UseCompatibleStateImageBehavior = false;
             this.lstv.View = System.Windows.Forms.View.Details;
             this.lstv.SelectedIndexChanged += new System.EventHandler(this.lstv_SelectedIndexChanged);
@@ -53,10 +56,10 @@
             // btnRemover
             // 
             this.btnRemover.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnRemover.BackColor = System.Drawing.Color.MediumSlateBlue;
-            this.btnRemover.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
+            this.btnRemover.BackColor = System.Drawing.Color.Crimson;
+            this.btnRemover.BackgroundColor = System.Drawing.Color.Crimson;
             this.btnRemover.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnRemover.BorderRadius = 0;
+            this.btnRemover.BorderRadius = 7;
             this.btnRemover.BorderSize = 0;
             this.btnRemover.FlatAppearance.BorderSize = 0;
             this.btnRemover.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -68,16 +71,17 @@
             this.btnRemover.TabIndex = 3;
             this.btnRemover.Text = "Remover";
             this.btnRemover.TextColor = System.Drawing.Color.White;
+            this.tltDispensa.SetToolTip(this.btnRemover, "Clique para remover todos os items selecionados da lista\r\n");
             this.btnRemover.UseVisualStyleBackColor = false;
             this.btnRemover.Click += new System.EventHandler(this.btnRemover_Click);
             // 
             // btnAlterar
             // 
             this.btnAlterar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAlterar.BackColor = System.Drawing.Color.MediumSlateBlue;
-            this.btnAlterar.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
+            this.btnAlterar.BackColor = System.Drawing.Color.Crimson;
+            this.btnAlterar.BackgroundColor = System.Drawing.Color.Crimson;
             this.btnAlterar.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnAlterar.BorderRadius = 0;
+            this.btnAlterar.BorderRadius = 7;
             this.btnAlterar.BorderSize = 0;
             this.btnAlterar.Enabled = false;
             this.btnAlterar.FlatAppearance.BorderSize = 0;
@@ -90,16 +94,17 @@
             this.btnAlterar.TabIndex = 2;
             this.btnAlterar.Text = "Alterar";
             this.btnAlterar.TextColor = System.Drawing.Color.White;
+            this.tltDispensa.SetToolTip(this.btnAlterar, "Clique para alterar o primeiro produto selcionado na lista");
             this.btnAlterar.UseVisualStyleBackColor = false;
             this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
             // 
             // btnAdicionar
             // 
             this.btnAdicionar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAdicionar.BackColor = System.Drawing.Color.MediumSlateBlue;
-            this.btnAdicionar.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
+            this.btnAdicionar.BackColor = System.Drawing.Color.Crimson;
+            this.btnAdicionar.BackgroundColor = System.Drawing.Color.Crimson;
             this.btnAdicionar.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnAdicionar.BorderRadius = 0;
+            this.btnAdicionar.BorderRadius = 7;
             this.btnAdicionar.BorderSize = 0;
             this.btnAdicionar.FlatAppearance.BorderSize = 0;
             this.btnAdicionar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -111,6 +116,7 @@
             this.btnAdicionar.TabIndex = 1;
             this.btnAdicionar.Text = "Adicionar";
             this.btnAdicionar.TextColor = System.Drawing.Color.White;
+            this.tltDispensa.SetToolTip(this.btnAdicionar, "Clicar para adicionar produto à lista");
             this.btnAdicionar.UseVisualStyleBackColor = false;
             this.btnAdicionar.Click += new System.EventHandler(this.btnAdicionar_Click);
             // 
@@ -138,5 +144,6 @@
         private CustomControls.RJControls.RJButton btnAdicionar;
         private CustomControls.RJControls.RJButton btnAlterar;
         private CustomControls.RJControls.RJButton btnRemover;
+        private System.Windows.Forms.ToolTip tltDispensa;
     }
 }
