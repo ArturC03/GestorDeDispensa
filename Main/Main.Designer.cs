@@ -30,15 +30,15 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.panelMenu = new System.Windows.Forms.FlowLayoutPanel();
-            this.panelHome = new System.Windows.Forms.Panel();
-            this.btnHome = new CustomControls.RJControls.RJButton();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelGestDispensa = new System.Windows.Forms.Panel();
             this.btnGestDispensa = new CustomControls.RJControls.RJButton();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panelGestCategoria = new System.Windows.Forms.Panel();
             this.btnGestCategoria = new CustomControls.RJControls.RJButton();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.panelHistorico = new System.Windows.Forms.Panel();
+            this.btnHistorico = new CustomControls.RJControls.RJButton();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.panelLogOut = new System.Windows.Forms.Panel();
             this.btnLogOut = new CustomControls.RJControls.RJButton();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
@@ -47,12 +47,12 @@
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.panelMain = new System.Windows.Forms.Panel();
             this.panelMenu.SuspendLayout();
-            this.panelHome.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelGestDispensa.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panelGestCategoria.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            this.panelHistorico.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             this.panelLogOut.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.panelExit.SuspendLayout();
@@ -66,9 +66,9 @@
             this.panelMenu.BackColor = System.Drawing.Color.Crimson;
             this.panelMenu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.panelMenu.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelMenu.Controls.Add(this.panelHome);
             this.panelMenu.Controls.Add(this.panelGestDispensa);
             this.panelMenu.Controls.Add(this.panelGestCategoria);
+            this.panelMenu.Controls.Add(this.panelHistorico);
             this.panelMenu.Controls.Add(this.panelLogOut);
             this.panelMenu.Controls.Add(this.panelExit);
             this.panelMenu.Location = new System.Drawing.Point(7, 7);
@@ -77,56 +77,13 @@
             this.panelMenu.Size = new System.Drawing.Size(213, 522);
             this.panelMenu.TabIndex = 0;
             // 
-            // panelHome
-            // 
-            this.panelHome.BackColor = System.Drawing.Color.White;
-            this.panelHome.Controls.Add(this.btnHome);
-            this.panelHome.Controls.Add(this.pictureBox1);
-            this.panelHome.Location = new System.Drawing.Point(3, 10);
-            this.panelHome.Name = "panelHome";
-            this.panelHome.Size = new System.Drawing.Size(200, 45);
-            this.panelHome.TabIndex = 1;
-            // 
-            // btnHome
-            // 
-            this.btnHome.BackColor = System.Drawing.Color.Transparent;
-            this.btnHome.BackgroundColor = System.Drawing.Color.Transparent;
-            this.btnHome.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnHome.BorderRadius = 0;
-            this.btnHome.BorderSize = 0;
-            this.btnHome.FlatAppearance.BorderSize = 0;
-            this.btnHome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnHome.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Bold);
-            this.btnHome.ForeColor = System.Drawing.Color.Crimson;
-            this.btnHome.Location = new System.Drawing.Point(47, 2);
-            this.btnHome.Name = "btnHome";
-            this.btnHome.Size = new System.Drawing.Size(150, 40);
-            this.btnHome.TabIndex = 3;
-            this.btnHome.Text = "HOME";
-            this.btnHome.TextColor = System.Drawing.Color.Crimson;
-            this.btnHome.UseVisualStyleBackColor = false;
-            this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
-            this.btnHome.MouseEnter += new System.EventHandler(this.btnHome_MouseEnter);
-            this.btnHome.MouseLeave += new System.EventHandler(this.btnHome_MouseLeave);
-            this.btnHome.MouseHover += new System.EventHandler(this.btnHome_MouseHover);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(3, 2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(40, 41);
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
-            // 
             // panelGestDispensa
             // 
             this.panelGestDispensa.BackColor = System.Drawing.Color.White;
+            this.panelGestDispensa.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelGestDispensa.Controls.Add(this.btnGestDispensa);
             this.panelGestDispensa.Controls.Add(this.pictureBox2);
-            this.panelGestDispensa.Location = new System.Drawing.Point(3, 61);
+            this.panelGestDispensa.Location = new System.Drawing.Point(3, 10);
             this.panelGestDispensa.Name = "panelGestDispensa";
             this.panelGestDispensa.Size = new System.Drawing.Size(200, 45);
             this.panelGestDispensa.TabIndex = 2;
@@ -167,9 +124,10 @@
             // panelGestCategoria
             // 
             this.panelGestCategoria.BackColor = System.Drawing.Color.White;
+            this.panelGestCategoria.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelGestCategoria.Controls.Add(this.btnGestCategoria);
             this.panelGestCategoria.Controls.Add(this.pictureBox3);
-            this.panelGestCategoria.Location = new System.Drawing.Point(3, 112);
+            this.panelGestCategoria.Location = new System.Drawing.Point(3, 61);
             this.panelGestCategoria.Name = "panelGestCategoria";
             this.panelGestCategoria.Size = new System.Drawing.Size(200, 45);
             this.panelGestCategoria.TabIndex = 3;
@@ -207,15 +165,59 @@
             this.pictureBox3.TabIndex = 1;
             this.pictureBox3.TabStop = false;
             // 
+            // panelHistorico
+            // 
+            this.panelHistorico.BackColor = System.Drawing.Color.White;
+            this.panelHistorico.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelHistorico.Controls.Add(this.btnHistorico);
+            this.panelHistorico.Controls.Add(this.pictureBox6);
+            this.panelHistorico.Location = new System.Drawing.Point(3, 112);
+            this.panelHistorico.Name = "panelHistorico";
+            this.panelHistorico.Size = new System.Drawing.Size(200, 45);
+            this.panelHistorico.TabIndex = 10;
+            // 
+            // btnHistorico
+            // 
+            this.btnHistorico.BackColor = System.Drawing.Color.Transparent;
+            this.btnHistorico.BackgroundColor = System.Drawing.Color.Transparent;
+            this.btnHistorico.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnHistorico.BorderRadius = 0;
+            this.btnHistorico.BorderSize = 0;
+            this.btnHistorico.FlatAppearance.BorderSize = 0;
+            this.btnHistorico.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHistorico.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Bold);
+            this.btnHistorico.ForeColor = System.Drawing.Color.Crimson;
+            this.btnHistorico.Location = new System.Drawing.Point(47, 2);
+            this.btnHistorico.Name = "btnHistorico";
+            this.btnHistorico.Size = new System.Drawing.Size(150, 40);
+            this.btnHistorico.TabIndex = 3;
+            this.btnHistorico.Text = "HISTÓRICO";
+            this.btnHistorico.TextColor = System.Drawing.Color.Crimson;
+            this.btnHistorico.UseVisualStyleBackColor = false;
+            this.btnHistorico.MouseEnter += new System.EventHandler(this.btnHistorico_MouseEnter);
+            this.btnHistorico.MouseLeave += new System.EventHandler(this.btnHistorico_MouseLeave);
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox6.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox6.BackgroundImage")));
+            this.pictureBox6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox6.Location = new System.Drawing.Point(3, 2);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(40, 41);
+            this.pictureBox6.TabIndex = 1;
+            this.pictureBox6.TabStop = false;
+            // 
             // panelLogOut
             // 
             this.panelLogOut.BackColor = System.Drawing.Color.White;
+            this.panelLogOut.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelLogOut.Controls.Add(this.btnLogOut);
             this.panelLogOut.Controls.Add(this.pictureBox4);
             this.panelLogOut.Location = new System.Drawing.Point(3, 163);
             this.panelLogOut.Name = "panelLogOut";
             this.panelLogOut.Size = new System.Drawing.Size(200, 45);
-            this.panelLogOut.TabIndex = 4;
+            this.panelLogOut.TabIndex = 11;
             // 
             // btnLogOut
             // 
@@ -235,7 +237,6 @@
             this.btnLogOut.Text = "LOG OUT";
             this.btnLogOut.TextColor = System.Drawing.Color.Crimson;
             this.btnLogOut.UseVisualStyleBackColor = false;
-            this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
             this.btnLogOut.MouseEnter += new System.EventHandler(this.btnLogOut_MouseEnter);
             this.btnLogOut.MouseLeave += new System.EventHandler(this.btnLogOut_MouseLeave);
             // 
@@ -253,12 +254,13 @@
             // panelExit
             // 
             this.panelExit.BackColor = System.Drawing.Color.White;
+            this.panelExit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelExit.Controls.Add(this.btnExit);
             this.panelExit.Controls.Add(this.pictureBox5);
             this.panelExit.Location = new System.Drawing.Point(3, 214);
             this.panelExit.Name = "panelExit";
             this.panelExit.Size = new System.Drawing.Size(200, 45);
-            this.panelExit.TabIndex = 5;
+            this.panelExit.TabIndex = 12;
             // 
             // btnExit
             // 
@@ -278,7 +280,6 @@
             this.btnExit.Text = "SAIR";
             this.btnExit.TextColor = System.Drawing.Color.Crimson;
             this.btnExit.UseVisualStyleBackColor = false;
-            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             this.btnExit.MouseEnter += new System.EventHandler(this.btnExit_MouseEnter);
             this.btnExit.MouseLeave += new System.EventHandler(this.btnExit_MouseLeave);
             // 
@@ -321,12 +322,12 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Main_FormClosing);
             this.Load += new System.EventHandler(this.Main_Load);
             this.panelMenu.ResumeLayout(false);
-            this.panelHome.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panelGestDispensa.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panelGestCategoria.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            this.panelHistorico.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             this.panelLogOut.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.panelExit.ResumeLayout(false);
@@ -337,21 +338,21 @@
 
         #endregion
         private System.Windows.Forms.FlowLayoutPanel panelMenu;
-        private System.Windows.Forms.Panel panelHome;
-        private CustomControls.RJControls.RJButton btnHome;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panelGestDispensa;
         private CustomControls.RJControls.RJButton btnGestDispensa;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Panel panelGestCategoria;
         private CustomControls.RJControls.RJButton btnGestCategoria;
         private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.Panel panelMain;
+        private System.Windows.Forms.Panel panelHistorico;
+        private CustomControls.RJControls.RJButton btnHistorico;
+        private System.Windows.Forms.PictureBox pictureBox6;
         private System.Windows.Forms.Panel panelLogOut;
         private CustomControls.RJControls.RJButton btnLogOut;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.Panel panelExit;
         private CustomControls.RJControls.RJButton btnExit;
         private System.Windows.Forms.PictureBox pictureBox5;
-        private System.Windows.Forms.Panel panelMain;
     }
 }

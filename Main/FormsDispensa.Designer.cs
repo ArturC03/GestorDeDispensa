@@ -30,10 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             this.lstv = new System.Windows.Forms.ListView();
+            this.tltDispensa = new System.Windows.Forms.ToolTip(this.components);
             this.btnRemover = new CustomControls.RJControls.RJButton();
             this.btnAlterar = new CustomControls.RJControls.RJButton();
             this.btnAdicionar = new CustomControls.RJControls.RJButton();
-            this.tltDispensa = new System.Windows.Forms.ToolTip(this.components);
             this.SuspendLayout();
             // 
             // lstv
@@ -42,11 +42,12 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lstv.BackColor = System.Drawing.Color.White;
+            this.lstv.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Bold);
             this.lstv.GridLines = true;
             this.lstv.HideSelection = false;
             this.lstv.Location = new System.Drawing.Point(10, 10);
             this.lstv.Name = "lstv";
-            this.lstv.Size = new System.Drawing.Size(553, 460);
+            this.lstv.Size = new System.Drawing.Size(546, 460);
             this.lstv.TabIndex = 0;
             this.tltDispensa.SetToolTip(this.lstv, "Clique num item para selecioná-lo");
             this.lstv.UseCompatibleStateImageBehavior = false;
@@ -61,11 +62,12 @@
             this.btnRemover.BorderColor = System.Drawing.Color.PaleVioletRed;
             this.btnRemover.BorderRadius = 7;
             this.btnRemover.BorderSize = 0;
+            this.btnRemover.Enabled = false;
             this.btnRemover.FlatAppearance.BorderSize = 0;
             this.btnRemover.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRemover.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Bold);
             this.btnRemover.ForeColor = System.Drawing.Color.White;
-            this.btnRemover.Location = new System.Drawing.Point(582, 123);
+            this.btnRemover.Location = new System.Drawing.Point(573, 123);
             this.btnRemover.Name = "btnRemover";
             this.btnRemover.Size = new System.Drawing.Size(150, 40);
             this.btnRemover.TabIndex = 3;
@@ -88,7 +90,7 @@
             this.btnAlterar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAlterar.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Bold);
             this.btnAlterar.ForeColor = System.Drawing.Color.White;
-            this.btnAlterar.Location = new System.Drawing.Point(582, 65);
+            this.btnAlterar.Location = new System.Drawing.Point(573, 65);
             this.btnAlterar.Name = "btnAlterar";
             this.btnAlterar.Size = new System.Drawing.Size(150, 40);
             this.btnAlterar.TabIndex = 2;
@@ -110,7 +112,7 @@
             this.btnAdicionar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdicionar.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Bold);
             this.btnAdicionar.ForeColor = System.Drawing.Color.White;
-            this.btnAdicionar.Location = new System.Drawing.Point(582, 10);
+            this.btnAdicionar.Location = new System.Drawing.Point(573, 10);
             this.btnAdicionar.Name = "btnAdicionar";
             this.btnAdicionar.Size = new System.Drawing.Size(150, 40);
             this.btnAdicionar.TabIndex = 1;

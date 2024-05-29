@@ -11,18 +11,20 @@ namespace Main
     internal class Categoria:Tabela
     {
         private static string[] fields = {"idCategoria", "categoria"};
-        
+        private static string[] type = { "int", "varchar" };
         public static string[] Fields
         {
             get => fields;
         }
+        public static string[] Type
+        {
+            get => type;
+        }
+
 
         public override bool Insert(string[] inputFields, string[] values)
         {
-            if (inputFields[0] == "*")
-                inputFields = fields;
-            else
-               if (!ValidField(inputFields , fields))
+            if (!ValidField(inputFields, fields))
                 return false;
 
             DBConnect dBConnect = new DBConnect();
@@ -74,7 +76,7 @@ namespace Main
                
             DBConnect dBConnect = new DBConnect();
 
-            return dBConnect.Count("Categoria", inputField,condition, order);
+            return dBConnect.Count("Categoria", inputField, condition, order);
         }
 
         public override string Max(string inputField, string condition = null, string order = null)

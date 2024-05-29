@@ -50,6 +50,12 @@ namespace Main
             }
             lstvProduto.Columns.AddRange(titulos);
 
+            for (int i = 0; i < lstvProduto.Columns.Count; i++)
+            {
+             lstvProduto.AutoResizeColumn(i, ColumnHeaderAutoResizeStyle.HeaderSize);
+            }
+
+
         }
         private void LoadProdutoListView(ref System.Windows.Forms.ListView lstvProduto, string[] fields)
         {
@@ -62,10 +68,12 @@ namespace Main
             lstvProduto.View = View.Details;
             lstvProduto.FullRowSelect = true;
             lstvProduto.MultiSelect = true;
+            
+            int innerCount = values[0].Count;
 
             // Inserir todos os campos da tabela Produto
             List<string> row = new List<string>();
-            for (int j = 0; j < values[j].Count; j++) {
+            for (int j = 0; j < innerCount; j++) {
                 row = new List<string>();
                 string[] linha = null;
                 for (int i = 0; values.Length > i; i++) {
@@ -82,6 +90,29 @@ namespace Main
             {
                  List<string>[] nomeCategoria = categoria.Select(Categoria.Fields[1].Split(), $"{Categoria.Fields[0]}={lstvProduto.Items[i].SubItems[1].Text}");
                 lstvProduto.Items[i].SubItems[1].Text = nomeCategoria[0][0];
+            }
+
+            for (int i = 0; i < lstvProduto.Columns.Count; i++)
+            {
+                // Primeiro, ajusta a coluna para o conteúdo
+                lstvProduto.AutoResizeColumn(i, ColumnHeaderAutoResizeStyle.ColumnContent);
+
+                // Obter a largura do conteúdo ajustado
+                int contentWidth = lstvProduto.Columns[i].Width;
+
+                // Ajusta a coluna para o título e obter a largura do título
+                lstvProduto.AutoResizeColumn(i, ColumnHeaderAutoResizeStyle.HeaderSize);
+                int headerWidth = lstvProduto.Columns[i].Width;
+
+                // Se a largura do conteúdo for menor que a largura do título, usa a largura do título
+                if (contentWidth > headerWidth)
+                {
+                    lstvProduto.Columns[i].Width = contentWidth;
+                }
+                else
+                {
+                    lstvProduto.Columns[i].Width = headerWidth;
+                }
             }
 
 
@@ -103,10 +134,16 @@ namespace Main
 
         private void lstv_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(lstv.SelectedItems.Count > 0) 
+            if(lstv.SelectedItems.Count > 0)
+            {
+                btnRemover.Enabled = true;
                 btnAlterar.Enabled = true;
+            }
             else
+            {
+                btnRemover.Enabled = false;
                 btnAlterar.Enabled = false;
+            }
         }
 
         private void btnAdicionar_Click(object sender, EventArgs e)

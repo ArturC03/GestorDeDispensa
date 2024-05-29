@@ -27,22 +27,6 @@ namespace Main
             Application.Exit();
         }
 
-        private void btnHome_MouseHover(object sender, EventArgs e)
-        {
-        }
-
-        private void btnHome_MouseLeave(object sender, EventArgs e)
-        {
-            btnHome.ForeColor = Color.Crimson;
-            btnHome.BackColor = Color.White;
-        }
-
-        private void btnHome_MouseEnter(object sender, EventArgs e)
-        {
-            btnHome.BackColor = Color.Crimson;
-            btnHome.ForeColor = Color.White;
-        }
-
         private void btnGestDispensa_Click(object sender, EventArgs e)
         {
             FormsDispensa dispensa = new FormsDispensa();
@@ -50,6 +34,7 @@ namespace Main
             dispensa.TopLevel = false;
             dispensa.AutoScroll = true;
 
+            panelMain.Controls.Clear();
             panelMain.Controls.Add(dispensa);
             
             dispensa.Show();
@@ -131,18 +116,16 @@ namespace Main
 
         private void btnGestCategoria_Click(object sender, EventArgs e)
         {
-  
-            //CreateCategoriaListView(ref lstv);
+            FormsCategoria categoria = new FormsCategoria();
 
-            //string[] fields = { "*" };
+            categoria.TopLevel = false;
+            categoria.AutoScroll = true;
 
-            //LoadCategoriaListView(ref lstv, fields);
+            panelMain.Controls.Clear();
+            panelMain.Controls.Add(categoria);
             
-        }
-
-        private void btnHome_Click(object sender, EventArgs e)
-        {
-
+            categoria.Show();
+            
         }
 
         private void panelMain_Resize(object sender, EventArgs e)
@@ -152,6 +135,20 @@ namespace Main
                 form.Width = panelMain.Width - 7;
                 form.Height = panelMain.Height - 7;
             }
+        }
+
+        private void btnHistorico_MouseEnter(object sender, EventArgs e)
+        {
+            btnHistorico.BackColor = Color.Crimson;
+            btnHistorico.ForeColor = Color.White;
+
+        }
+
+        private void btnHistorico_MouseLeave(object sender, EventArgs e)
+        {
+            btnHistorico.ForeColor = Color.Crimson;
+            btnHistorico.BackColor = Color.White;
+
         }
     }
 }
