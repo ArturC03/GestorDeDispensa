@@ -49,10 +49,11 @@
             this.lstv.Name = "lstv";
             this.lstv.Size = new System.Drawing.Size(546, 460);
             this.lstv.TabIndex = 0;
-            this.tltDispensa.SetToolTip(this.lstv, "Clique num item para selecioná-lo");
+            this.tltDispensa.SetToolTip(this.lstv, "Clique num item duas vezes para visualizá-lo\r\n");
             this.lstv.UseCompatibleStateImageBehavior = false;
             this.lstv.View = System.Windows.Forms.View.Details;
             this.lstv.SelectedIndexChanged += new System.EventHandler(this.lstv_SelectedIndexChanged);
+            this.lstv.DoubleClick += new System.EventHandler(this.lstv_DoubleClick);
             // 
             // btnRemover
             // 

@@ -174,6 +174,18 @@ namespace Main
 
         }
 
+        private void lstv_DoubleClick(object sender, EventArgs e)
+        {
+            if(lstv.SelectedItems.Count > 0)
+            {
+                Produto produto = new Produto();
+
+                DadosDispensa dados = new DadosDispensa(this,"Visualizar", lstv.SelectedIndices[0]);
+                dados.Show();
+            
+            }
+        }
+
 
 
         // Remove Function (Use DELETE with a condition on the idProduto)

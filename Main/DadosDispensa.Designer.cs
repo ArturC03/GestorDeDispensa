@@ -122,6 +122,7 @@
             this.cboIdCategoria.Size = new System.Drawing.Size(250, 30);
             this.cboIdCategoria.TabIndex = 26;
             this.cboIdCategoria.Texts = "";
+            this.cboIdCategoria.OnSelectedIndexChanged += new System.EventHandler(this.cboIdCategoria_OnSelectedIndexChanged);
             // 
             // btnOk
             // 
@@ -130,6 +131,7 @@
             this.btnOk.BorderColor = System.Drawing.Color.PapayaWhip;
             this.btnOk.BorderRadius = 7;
             this.btnOk.BorderSize = 0;
+            this.btnOk.Enabled = false;
             this.btnOk.FlatAppearance.BorderSize = 0;
             this.btnOk.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOk.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Bold);
@@ -184,6 +186,7 @@
             this.txtMarca.TabIndex = 5;
             this.txtMarca.Texts = "";
             this.txtMarca.UnderlinedStyle = false;
+            this.txtMarca._TextChanged += new System.EventHandler(this.txtMarca__TextChanged);
             // 
             // txtQuantidade
             // 
@@ -252,6 +255,7 @@
             this.txtNome.TabIndex = 2;
             this.txtNome.Texts = "";
             this.txtNome.UnderlinedStyle = false;
+            this.txtNome._TextChanged += new System.EventHandler(this.txtNome__TextChanged);
             // 
             // txtIdProduto
             // 

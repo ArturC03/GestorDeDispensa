@@ -41,11 +41,6 @@ namespace Main
 
         }
 
-        private void txtIdProduto__TextChanged(object sender, EventArgs e)
-        {
-            txtIdCategoria.Texts = ApenasDigitos(txtIdCategoria.Texts);
-        }
-
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -73,7 +68,6 @@ namespace Main
                 else
                     if ("Adicionar" == tipoVisualizacao)
                 {
-                   
                     
                     string[] fields = new string[Categoria.Fields.Length];
                     string[] values = new string[Categoria.Fields.Length];
@@ -120,7 +114,27 @@ namespace Main
                     else
                         control.Enabled = false;
 
+                 btnCancel.Visible = false;
+                 btnOk.Visible= false;
+
+
             }
+        }
+
+        private void txtIdCategoria__TextChanged(object sender, EventArgs e)
+        {
+            btnOk.Enabled = true;
+            if (string.IsNullOrEmpty(txtIdCategoria.Texts.Trim()) || string.IsNullOrEmpty(txtCategoria.Texts.Trim()))
+                btnOk.Enabled = false;
+
+            txtIdCategoria.Texts = ApenasDigitos(txtIdCategoria.Texts);
+        }
+
+        private void txtCategoria__TextChanged(object sender, EventArgs e)
+        {
+            btnOk.Enabled = true;
+            if (string.IsNullOrEmpty(txtIdCategoria.Texts.Trim()) || string.IsNullOrEmpty(txtCategoria.Texts.Trim()))
+                btnOk.Enabled = false;
         }
     }
 }

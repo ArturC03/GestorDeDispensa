@@ -115,6 +115,7 @@
             this.lstv.UseCompatibleStateImageBehavior = false;
             this.lstv.View = System.Windows.Forms.View.Details;
             this.lstv.SelectedIndexChanged += new System.EventHandler(this.lstv_SelectedIndexChanged);
+            this.lstv.DoubleClick += new System.EventHandler(this.lstv_DoubleClick);
             // 
             // FormsCategoria
             // 

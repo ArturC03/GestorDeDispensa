@@ -156,12 +156,33 @@ namespace Main
 
             while(lstv.SelectedIndices.Count > 0)
             {
-                categoria.Delete($"{Categoria.Fields[0]}={lstv.SelectedItems[0].SubItems[0].Text}");
-                lstv.Items.RemoveAt(lstv.SelectedIndices[0]);
+                Tabela produto = new Produto();
+                if (produto.Count(Produto.Fields[1], $"idCategoria={lstv.SelectedItems[0].SubItems[0].Text}") <= 0)
+                {
+                    categoria.Delete($"{Categoria.Fields[0]}={lstv.SelectedItems[0].SubItems[0].Text}");
+                    lstv.Items.RemoveAt(lstv.SelectedIndices[0]);
+                }
+                else
+                {
+                    lstv.SelectedItems[0].Selected = false;
+                    MessageBox.Show("Existem produtos com esta Categoria.\nRemover os produtos com esta categoria para a remover", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             LoadCategoriaListView(ref lstv, "*".Split());
 
 
+        }
+
+        private void lstv_DoubleClick(object sender, EventArgs e)
+        {
+            if(lstv.SelectedItems.Count > 0)
+            {
+                Tabela produto = new Categoria();
+
+                DadosCategoria dados = new DadosCategoria(this,"Visualizar", lstv.SelectedIndices[0]);
+                dados.Show();
+            
+            }
         }
     }
 

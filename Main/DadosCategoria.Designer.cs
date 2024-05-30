@@ -67,7 +67,7 @@
             this.txtIdCategoria.TabIndex = 10;
             this.txtIdCategoria.Texts = "";
             this.txtIdCategoria.UnderlinedStyle = false;
-            this.txtIdCategoria._TextChanged += new System.EventHandler(this.txtIdProduto__TextChanged);
+            this.txtIdCategoria._TextChanged += new System.EventHandler(this.txtIdCategoria__TextChanged);
             // 
             // lblCategoria
             // 
@@ -100,6 +100,7 @@
             this.txtCategoria.TabIndex = 16;
             this.txtCategoria.Texts = "";
             this.txtCategoria.UnderlinedStyle = false;
+            this.txtCategoria._TextChanged += new System.EventHandler(this.txtCategoria__TextChanged);
             // 
             // btnOk
             // 
@@ -108,6 +109,7 @@
             this.btnOk.BorderColor = System.Drawing.Color.PapayaWhip;
             this.btnOk.BorderRadius = 7;
             this.btnOk.BorderSize = 0;
+            this.btnOk.Enabled = false;
             this.btnOk.FlatAppearance.BorderSize = 0;
             this.btnOk.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOk.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Bold);

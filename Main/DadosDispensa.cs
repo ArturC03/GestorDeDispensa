@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Deployment.Internal;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Linq;
@@ -62,6 +63,9 @@ namespace Main
                     else
                         control.Enabled = false;
 
+                 btnCancel.Visible = false;
+                 btnOk.Visible= false;
+
             }
         }
 
@@ -97,7 +101,8 @@ namespace Main
                     if ("Adicionar" == tipoVisualizacao)
                 {
                     txtIdProduto.Texts = id + string.Empty;
-                    
+                    if (produto.Count() )
+
                     string[] fields = new string[Produto.Fields.Length];
                     string[] values = new string[Produto.Fields.Length];
 
@@ -142,17 +147,56 @@ namespace Main
 
         private void txtIdProduto__TextChanged(object sender, EventArgs e)
         {
+            btnOk.Enabled = true;
+
+            if (string.IsNullOrEmpty(txtIdProduto.Texts.Trim()) || 0 > cboIdCategoria.SelectedIndex|| string.IsNullOrEmpty(txtNome.Texts.Trim()) || string.IsNullOrEmpty(txtPreco.Texts.Trim()) || string.IsNullOrEmpty(txtQuantidade.Texts.Trim()) || string.IsNullOrEmpty(txtMarca.Texts.Trim()))
+                btnOk.Enabled = false;
             txtIdProduto.Texts = ApenasDigitos(txtIdProduto.Texts);
         }
 
         private void txtQuantidade__TextChanged(object sender, EventArgs e)
         {
+            
+            btnOk.Enabled = true;
+            if (string.IsNullOrEmpty(txtIdProduto.Texts.Trim()) || 0 > cboIdCategoria.SelectedIndex || string.IsNullOrEmpty(txtNome.Texts.Trim()) || string.IsNullOrEmpty(txtPreco.Texts.Trim()) || string.IsNullOrEmpty(txtQuantidade.Texts.Trim()) || string.IsNullOrEmpty(txtMarca.Texts.Trim()))
+                btnOk.Enabled = false;
+
             txtQuantidade.Texts = ApenasDigitos(txtQuantidade.Texts);
         }
 
         private void txtPreco__TextChanged(object sender, EventArgs e)
         {
+            btnOk.Enabled = true;
+            if (string.IsNullOrEmpty(txtIdProduto.Texts.Trim()) || 0 > cboIdCategoria.SelectedIndex || string.IsNullOrEmpty(txtNome.Texts.Trim()) || string.IsNullOrEmpty(txtPreco.Texts.Trim()) || string.IsNullOrEmpty(txtQuantidade.Texts.Trim()) || string.IsNullOrEmpty(txtMarca.Texts.Trim()))
+                btnOk.Enabled = false;
+
             txtPreco.Texts = ApenasDigitos(txtPreco.Texts);
+        }
+
+        private void txtNome__TextChanged(object sender, EventArgs e)
+        {
+            
+            btnOk.Enabled = true;
+            if (string.IsNullOrEmpty(txtIdProduto.Texts.Trim()) || 0 > cboIdCategoria.SelectedIndex || string.IsNullOrEmpty(txtNome.Texts.Trim()) || string.IsNullOrEmpty(txtPreco.Texts.Trim()) || string.IsNullOrEmpty(txtQuantidade.Texts.Trim()) || string.IsNullOrEmpty(txtMarca.Texts.Trim()))
+                btnOk.Enabled = false;
+
+
+        }
+
+        private void txtMarca__TextChanged(object sender, EventArgs e)
+        {
+            btnOk.Enabled = true;
+            if (string.IsNullOrEmpty(txtIdProduto.Texts.Trim()) || 0 > cboIdCategoria.SelectedIndex || string.IsNullOrEmpty(txtNome.Texts.Trim()) || string.IsNullOrEmpty(txtPreco.Texts.Trim()) || string.IsNullOrEmpty(txtQuantidade.Texts.Trim()) || string.IsNullOrEmpty(txtMarca.Texts.Trim()))
+                btnOk.Enabled = false;
+
+        }
+
+        private void cboIdCategoria_OnSelectedIndexChanged(object sender, EventArgs e)
+        {
+            btnOk.Enabled = true;
+            if (string.IsNullOrEmpty(txtIdProduto.Texts.Trim()) ||  0 > cboIdCategoria.SelectedIndex || string.IsNullOrEmpty(txtNome.Texts.Trim()) || string.IsNullOrEmpty(txtPreco.Texts.Trim()) || string.IsNullOrEmpty(txtQuantidade.Texts.Trim()) || string.IsNullOrEmpty(txtMarca.Texts.Trim()))
+                btnOk.Enabled = false;
+
         }
     }
 }
