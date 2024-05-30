@@ -142,7 +142,21 @@ namespace Main
         }
         private void Main_Load(object sender, EventArgs e)
         {
-        }   
+        }
+
+        private void btnHistorico_Click(object sender, EventArgs e)
+        {
+            FormsHistorico historico = new FormsHistorico();
+
+            historico.TopLevel = false;
+            historico.AutoScroll = true;
+
+            panelMain.Controls.Clear();
+            panelMain.Controls.Add(historico);
+
+            historico.Show();
+
+        }
     }
 }
 

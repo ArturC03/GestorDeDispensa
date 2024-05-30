@@ -126,9 +126,9 @@ namespace Main
   
         private void btnAlterar_Click(object sender, EventArgs e)
         {
-            DadosDispensa dados = new DadosDispensa(this,"Alterar", lstv.SelectedIndices[0]);
+            DadosDispensa dados = new DadosDispensa(this,"Alterar", int.Parse(lstv.SelectedItems[0].SubItems[0].Text));
             dados.Show();
-
+            dados.Focus();
             btnAlterar.Enabled = false;
         }
 
@@ -158,15 +158,17 @@ namespace Main
 
             DadosDispensa dados = new DadosDispensa(this,"Adicionar", id);
             dados.Show();
+            dados.Focus();
 
         }
 
         private void btnRemover_Click(object sender, EventArgs e)
         {
             Tabela produto = new Produto();
-
+            Tabela historico = new Historico();
             while(lstv.SelectedIndices.Count > 0)
             {
+                historico.Delete($"{Produto.Fields[0]}={lstv.SelectedItems[0].SubItems[0].Text}");
                 produto.Delete($"{Produto.Fields[0]}={lstv.SelectedItems[0].SubItems[0].Text}");
                 lstv.Items.RemoveAt(lstv.SelectedIndices[0]);
             }
@@ -182,7 +184,8 @@ namespace Main
 
                 DadosDispensa dados = new DadosDispensa(this,"Visualizar", lstv.SelectedIndices[0]);
                 dados.Show();
-            
+                dados.Focus();
+
             }
         }
 

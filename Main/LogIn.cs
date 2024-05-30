@@ -25,7 +25,7 @@ namespace Main
         {
             DBConnect dBConnect = new DBConnect();
 
-            if (txtUsername.Texts != dBConnect.Uid)
+            if (txtUsername.Texts.Trim() != dBConnect.Uid)
                 MessageBox.Show("O utilizador especificado não existe", "Utilizador não Encontrado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             else
                 if (txtPass.Texts != dBConnect.Password)

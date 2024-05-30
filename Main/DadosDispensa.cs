@@ -47,6 +47,7 @@ namespace Main
             List<string>[] fields = produto.Select("*".Split(), $"{dBConnect.Database}.Produto.{Produto.Fields[0]} = {id}");
             if ("Adicionar" != tipoVisualizacao)
             {
+                txtIdProduto.Enabled = false;
                 txtIdProduto.Texts = fields[0][0];
                 cboIdCategoria.SelectedIndex = int.Parse(fields[1][0]);
                 txtNome.Texts = fields[2][0];
@@ -93,34 +94,38 @@ namespace Main
                     changes[5] = $"{Produto.Fields[5]}='{txtMarca.Texts}'";
 
                     // Chamar as mudanças
-                    produto.Update(changes, $"{dBConnect.Database}.Produto.{Produto.Fields[0]}={txtIdProduto.Texts}");
-
+                    produto.Update(changes, $"{Produto.Fields[0]}={txtIdProduto.Texts}");
 
                 }
                 else
                     if ("Adicionar" == tipoVisualizacao)
                 {
-                    txtIdProduto.Texts = id + string.Empty;
-                    if (produto.Count() )
+                    if (1 > produto.Count(Produto.Fields[0], $"{Produto.Fields[0]} = {txtIdProduto.Texts.Trim()}"))
+                    {
+                
+                        string[] fields = new string[Produto.Fields.Length];
+                        string[] values = new string[Produto.Fields.Length];
 
-                    string[] fields = new string[Produto.Fields.Length];
-                    string[] values = new string[Produto.Fields.Length];
+                        fields[0] = $"{Produto.Fields[0]}";
+                        fields[1] = $"{Produto.Fields[1]}";
+                        fields[2] = $"{Produto.Fields[2]}";
+                        fields[3] = $"{Produto.Fields[3]}";
+                        fields[4] = $"{Produto.Fields[4]}";
+                        fields[5] = $"{Produto.Fields[5]}";
 
-                    fields[0] = $"{Produto.Fields[0]}";
-                    fields[1] = $"{Produto.Fields[1]}";
-                    fields[2] = $"{Produto.Fields[2]}";
-                    fields[3] = $"{Produto.Fields[3]}";
-                    fields[4] = $"{Produto.Fields[4]}";
-                    fields[5] = $"{Produto.Fields[5]}";
+                        values[0] = $"{txtIdProduto.Texts}";
+                        values[1] = $"{cboIdCategoria.SelectedIndex}";
+                        values[2] = $"'{txtNome.Texts}'";
+                        values[3] = $"{txtPreco.Texts.Replace(',', '.')}";
+                        values[4] = $"{txtQuantidade.Texts}";
+                        values[5] = $"'{txtMarca.Texts}'";
 
-                    values[0] = $"{txtIdProduto.Texts}";
-                    values[1] = $"{cboIdCategoria.SelectedIndex}";
-                    values[2] = $"'{txtNome.Texts}'";
-                    values[3] = $"{txtPreco.Texts.Replace(',', '.')}";
-                    values[4] = $"{txtQuantidade.Texts}";
-                    values[5] = $"'{txtMarca.Texts}'";
-
-                    produto.Insert(fields, values);
+                        produto.Insert(fields, values);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Erro, IdProduto já se encontra associado", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
 
                 }
 

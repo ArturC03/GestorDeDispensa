@@ -38,9 +38,9 @@ namespace Main
                     correto.Append(chr);
                 
             return correto.ToString();
-
+        
         }
-
+       
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -63,25 +63,29 @@ namespace Main
                     // Chamar as mudanças
                     categoria.Update(changes, $"{dBConnect.Database}.Categoria.{Categoria.Fields[0]}={txtIdCategoria.Texts}");
 
-
                 }
                 else
                     if ("Adicionar" == tipoVisualizacao)
                 {
-                    
-                    string[] fields = new string[Categoria.Fields.Length];
-                    string[] values = new string[Categoria.Fields.Length];
+                    if (1 > categoria.Count(Categoria.Fields[0], $"{Categoria.Fields[0]} = {txtIdCategoria.Texts.Trim()}"))
+                    {
+                        string[] fields = new string[Categoria.Fields.Length];
+                        string[] values = new string[Categoria.Fields.Length];
 
-                    fields[0] = $"{Categoria.Fields[0]}";
-                    fields[1] = $"{Categoria.Fields[1]}";
+                        fields[0] = $"{Categoria.Fields[0]}";
+                        fields[1] = $"{Categoria.Fields[1]}";
 
-                    values[0] = $"{txtIdCategoria.Texts}";
-                    values[1] = $"'{txtCategoria.Texts}'";
+                        values[0] = $"{txtIdCategoria.Texts}";
+                        values[1] = $"'{txtCategoria.Texts}'";
 
-                    categoria.Insert(fields, values);
+                        categoria.Insert(fields, values);
+                    }
+                    else
+                    {
+                        MessageBox.Show("o id introduzido já se encontra associado a outra categoria", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
 
                 }
-
                     this.formsCategoria.RefreshListView();
                     this.Close();
             }
@@ -90,7 +94,7 @@ namespace Main
                 MessageBox.Show($"Falha na inserção de Dados:\n{ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-      
+        
         private void DadosCategoria_Load(object sender, EventArgs e)
         {
             DBConnect dBConnect = new DBConnect();
@@ -116,11 +120,9 @@ namespace Main
 
                  btnCancel.Visible = false;
                  btnOk.Visible= false;
-
-
             }
         }
-
+        
         private void txtIdCategoria__TextChanged(object sender, EventArgs e)
         {
             btnOk.Enabled = true;

@@ -110,7 +110,7 @@
             this.cboIdCategoria.BorderColor = System.Drawing.Color.Crimson;
             this.cboIdCategoria.BorderSize = 2;
             this.cboIdCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
-            this.cboIdCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.cboIdCategoria.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.cboIdCategoria.ForeColor = System.Drawing.Color.DimGray;
             this.cboIdCategoria.IconColor = System.Drawing.Color.Crimson;
             this.cboIdCategoria.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(228)))), ((int)(((byte)(245)))));

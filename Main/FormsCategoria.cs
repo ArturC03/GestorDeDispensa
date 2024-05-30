@@ -138,14 +138,15 @@ namespace Main
 
             DadosCategoria dados = new DadosCategoria(this,"Adicionar", id);
             dados.Show();
+            dados.Focus();
 
         }
 
         private void btnAlterar_Click(object sender, EventArgs e)
         {
-            DadosCategoria dados = new DadosCategoria(this,"Alterar", lstv.SelectedIndices[0]);
+            DadosCategoria dados = new DadosCategoria(this,"Alterar", int.Parse(lstv.SelectedItems[0].SubItems[0].Text));
             dados.Show();
-
+            dados.Focus();
             btnAlterar.Enabled = false;
 
         }
@@ -181,7 +182,8 @@ namespace Main
 
                 DadosCategoria dados = new DadosCategoria(this,"Visualizar", lstv.SelectedIndices[0]);
                 dados.Show();
-            
+                dados.Focus();
+
             }
         }
     }

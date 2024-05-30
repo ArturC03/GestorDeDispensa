@@ -194,6 +194,7 @@
             this.btnHistorico.Text = "HISTÓRICO";
             this.btnHistorico.TextColor = System.Drawing.Color.Crimson;
             this.btnHistorico.UseVisualStyleBackColor = false;
+            this.btnHistorico.Click += new System.EventHandler(this.btnHistorico_Click);
             this.btnHistorico.MouseEnter += new System.EventHandler(this.btnHistorico_MouseEnter);
             this.btnHistorico.MouseLeave += new System.EventHandler(this.btnHistorico_MouseLeave);
             // 
