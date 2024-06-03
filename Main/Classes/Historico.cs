@@ -8,8 +8,8 @@ namespace Main
 {
     internal class Historico : Tabela
     {
-        private static string[] fields = {"idProduto", "acao", "nome","marca", "preco", "quantidade", "dataTransacao"};
-        private static string[] type = { "int", "varchar","varchar","varchar","decimal","int","timestamp"};
+        private static string[] fields = { "idHistorico", "idProduto","acao","nome","preco","quantidade","dataTransacao"};
+        private static string[] type = { "int", "int","varchar", "varchar", "decimal", "int", "timestamp"};
         public static string[] Fields
         {
             get => fields;
